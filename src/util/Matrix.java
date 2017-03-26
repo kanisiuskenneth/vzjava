@@ -11,7 +11,7 @@ public class Matrix {
     int ncol;
 
     public Matrix(int row, int col) {
-        Data = new Cell[][][row][col];
+        Data = new Cell[row][col];
         nrow = row;
         ncol = col;
     }
