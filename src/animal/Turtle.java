@@ -14,6 +14,9 @@ public class Turtle extends Animal {
         food_type = new ArrayList<Integer>();
         habitats = new ArrayList<Character>();
         incompatible = new HashSet<Integer>();
+        food_type.add(2);
+        habitats.add('l');
+        habitats.add('w');
         filum = "Chordata";
         kelas = "Reptilia";
         ordo = "Testudines";
