@@ -2,6 +2,7 @@ package animal;
 
 import java.util.Set;
 import java.util.List;
+import util.Position;
 
 /**
  * Created by Richard on 26-Mar-17.
@@ -10,11 +11,11 @@ public abstract class Animal {
     private String name;
     private int weight;
     private int id;
-    private Pair<int, int> position;
+    private Position position;
     private char symbol;
-    protected List<int> food_type;
-    protected List<char> habitats;
-    protected Set<int> incompatible;
+    protected List<Integer> food_type;
+    protected List<Character> habitats;
+    protected Set<Integer> incompatible;
     protected String filum;
     protected String kelas;
     protected String ordo;
@@ -22,7 +23,7 @@ public abstract class Animal {
     protected String genus;
     protected String spesies;
 
-    public Animal(String animal_name, int animal_weight, int identifier, Pair<int, int> pos, char sym) {
+    public Animal(String animal_name, int animal_weight, int identifier, Position pos, char sym) {
         name = animal_name;
         weight = animal_weight;
         id = identifier;
@@ -39,34 +40,34 @@ public abstract class Animal {
     }
 
     public void moveUp() {
-        position.first--;
+        position.row--;
     }
 
     public void moveDown() {
-        position.first++;
+        position.row++;
     }
 
     public void moveLeft() {
-        position.second--;
+        position.col--;
     }
 
     public void moveRight() {
-        position.second++;
+        position.col++;
     }
 
     public char Render() {
         return symbol;
     }
 
-    public Pair<int, int> getPosition() {
+    public Position getPosition() {
         return position;
     }
 
-    public Set<int> getIncompatible() {
+    public Set<Integer> getIncompatible() {
         return incompatible;
     }
 
-    public List<char> getHabitats() {
+    public List<Character> getHabitats() {
         return habitats;
     }
 
