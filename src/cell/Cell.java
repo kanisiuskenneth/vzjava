@@ -14,15 +14,15 @@ public class Cell {
         animal_pass = apass;
     }
 
-    public char Render() {
+    public char render() {
         return symbol;
     }
 
-    public boolean IsHumanPass() {
+    public boolean isHumanPass() {
         return human_pass;
     }
 
-    public boolean IsAnimalPass() {
+    public boolean isAnimalPass() {
         return animal_pass;
     }
 }

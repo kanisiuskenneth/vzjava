@@ -22,34 +22,34 @@ public class Habitat extends Cell {
         gate_right=false;
     }
 
-    public void OpenGateUp() {
+    public void openGateUp() {
         gate_up = true;
     }
 
-    public void OpenGateDown() {
+    public void openGateDown() {
         gate_down = true;
     }
 
-    public void OpenGateLeft() {
+    public void openGateLeft() {
         gate_left = true;
     }
 
-    public void OpenGateRight() {
+    public void openGateRight() {
         gate_right = true;
     }
-    public void CloseGateUp() {
+    public void closeGateUp() {
         gate_up = false;
     }
 
-    public void CloseGateDown() {
+    public void closeGateDown() {
         gate_down = false;
     }
 
-    public void CloseGateLeft() {
+    public void closeGateLeft() {
         gate_left = false;
     }
 
-    public void CloseGateRight() {
+    public void closeGateRight() {
         gate_right = false;
     }
 
