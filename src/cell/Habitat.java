@@ -53,11 +53,14 @@ public class Habitat extends Cell {
         gate_right = false;
     }
 
-    public char GetHabitatType() {
+    public char getHabitatType() {
         return hab_type;
     }
 
-    public boolean IsInCage() {
+    public boolean isInCage() {
         return incage;
+    }
+    public void assignCage() {
+        incage = true;
     }
 }
