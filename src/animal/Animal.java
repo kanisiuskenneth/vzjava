@@ -3,11 +3,12 @@ package animal;
 import java.util.Set;
 import java.util.List;
 import util.Position;
+import util.Renderable;
 
 /**
  * Created by Richard on 26-Mar-17.
  */
-public abstract class Animal {
+public abstract class Animal implements Renderable {
     private String name;
     private int weight;
     private int id;
@@ -55,7 +56,7 @@ public abstract class Animal {
         position.col++;
     }
 
-    public char Render() {
+    public char render() {
         return symbol;
     }
 
