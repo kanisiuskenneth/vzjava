@@ -8,26 +8,26 @@ import java.util.HashSet;
 /**
  * Created by Richard on 26-Mar-17.
  */
-public class Bear extends Animal {
-    public Bear(String name, int row, int col) {
-        super(name, 120,3,Position.makePos(row,col),'@' );
+public class Chimpanzee extends Animal {
+    public Chimpanzee(String name, int row, int col) {
+        super(name, 60, 2, Position.makePos(row,col), '&');
         food_type = new ArrayList<Integer>();
         habitats = new ArrayList<Character>();
         incompatible = new HashSet<Integer>();
-        food_type.add(1);
         food_type.add(2);
         habitats.add('l');
         filum = "Chordata";
         kelas = "Mammalia";
-        ordo = "Carnivora";
-        famili = "Ursidae";
-        genus = "Helarctos";
-        spesies = "malayanus";
+        ordo = "Primates";
+        famili = "Hominidae";
+        genus = "Pan";
+        spesies = "troglodytes";
         incompatible.add(6);
         incompatible.add(7);
         incompatible.add(9);
     }
+
     public void interact() {
-        System.out.println("GROOWL!!\n");
+        System.out.println("Ook oook !\n");
     }
 }
