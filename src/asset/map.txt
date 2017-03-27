@@ -24,7 +24,7 @@ WWWWWWWWWWwwWWWWwwwwWWWWWW..AAAAAAAAAAAA*..WWWWWWWWwwwwwwwwwwwwwwwwwwww.llllll**
 ...........................aaaaaaaaaaAAAA..WWWWWWWWWWWWWWwwwwwwwWWWWWWW..LLLll**
 rrrrrrrrr******..AAAAAAAAAAAAAAAAaaaaAAAA..WWWWWWWWWWWWWWwwwwwwwWWWWWWW..LLLll**
 rrrrrrrrrrrrrrrxx******************************************************ee*******
-AnimalMeta(n): 29 
+AnimalMeta(n): 29
 Animals(type,name,row[0..n],col[0..n]):
 1 Rudolph 2 5
 1 Bambi 14 10
@@ -54,3 +54,5 @@ Animals(type,name,row[0..n],col[0..n]):
 19 Skully 2 41
 19 Blu 23 32
 20 Sam 20 28
+21 Squirt 17 0
+
