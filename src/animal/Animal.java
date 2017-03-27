@@ -405,4 +405,72 @@ public class Animal {
     public String getName() {
         return name;
     }
+
+    public void interact() {
+        switch(id) {
+            case 1:
+                System.out.println("Meee...eeek\n");
+                break;
+            case 2:
+                System.out.println("Ook oook !\n");
+                break;
+            case 3:
+                System.out.println("GROOWL!\n");
+                break;
+            case 4:
+                System.out.println("eROOWRRHhh!\n");
+                break;
+            case 5:
+                System.out.println("Hugh! Hough, hough!\n");
+                break;
+            case 6:
+                System.out.println("Groowwlll\n");
+                break;
+            case 7:
+                System.out.println("Rooaar\n");
+                break;
+            case 8:
+                System.out.println("Huuummm.....\n");
+                break;
+            case 9:
+                System.out.println("....hiss....\n");
+                break;
+            case 10:
+                System.out.println("blurrbb.. swoosh\n");
+                break;
+            case 11:
+                System.out.println("Shooosshhh .....\n");
+                break;
+            case 12:
+                System.out.println("Woonk, woonkk!\n");
+                break;
+            case 13:
+                System.out.println("Bluurrrbb blurrb\n");
+                break;
+            case 14:
+                System.out.println("Shoo.. shoo...\n");
+                break;
+            case 15:
+                System.out.println("Phoo ahhh\n");
+                break;
+            case 16:
+                System.out.println("Hoot hoot hoot\n");
+                break;
+            case 17:
+                System.out.println("Heeenkk heeeenk\n");
+                break;
+            case 18:
+                System.out.println("Chirp chirp\n");
+                break;
+            case 19:
+                System.out.println("Squawk, HELLO! Squawk squawk\n");
+                break;
+            case 20:
+                System.out.println("Phweee !!\n");
+                break;
+            case 21:
+                System.out.println("Squeeekk\n");
+                break;
+        }
+    }
 }
