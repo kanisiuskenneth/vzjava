@@ -9,7 +9,7 @@ import java.util.HashSet;
  * Created by Richard on 26-Mar-17.
  */
 public class Pelican extends Animal {
-    public Pelican(String name, int row, int col) {
+    public Pelican(StringBuffer name, int row, int col) {
         super(name, 3, 17, Position.makePos(row, col), ';');
         food_type = new ArrayList<Integer>();
         habitats = new ArrayList<Character>();

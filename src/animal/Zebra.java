@@ -9,7 +9,7 @@ import java.util.HashSet;
  * Created by Richard on 26-Mar-17.
  */
 public class Zebra extends Animal {
-    public Zebra(String name, int row, int col) {
+    public Zebra(StringBuffer name, int row, int col) {
         super(name, 200, 5, Position.makePos(row, col), 'z');
         food_type = new ArrayList<Integer>();
         habitats = new ArrayList<Character>();

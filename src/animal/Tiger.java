@@ -9,7 +9,7 @@ import java.util.HashSet;
  * Created by Richard on 26-Mar-17.
  */
 public class Tiger extends Animal {
-    public Tiger(String name, int row, int col) {
+    public Tiger(StringBuffer name, int row, int col) {
         super(name, 150, 6, Position.makePos(row, col), 't');
         food_type = new ArrayList<Integer>();
         habitats = new ArrayList<Character>();

@@ -9,7 +9,7 @@ import java.util.HashSet;
  * Created by Richard on 26-Mar-17.
  */
 public class Stingray extends Animal {
-    public Stingray(String name, int row, int col) {
+    public Stingray(StringBuffer name, int row, int col) {
         super(name, 150, 13, Position.makePos(row, col),'\\');
         food_type = new ArrayList<Integer>();
         habitats = new ArrayList<Character>();

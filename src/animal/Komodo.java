@@ -9,7 +9,7 @@ import java.util.HashSet;
  * Created by Richard on 26-Mar-17.
  */
 public class Komodo extends Animal {
-    public Komodo(String name, int row, int col) {
+    public Komodo(StringBuffer name, int row, int col) {
         super (name, 80, 9, Position.makePos(row, col), 'k');
         food_type = new ArrayList<Integer>();
         habitats = new ArrayList<Character>();
