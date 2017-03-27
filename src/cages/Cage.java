@@ -107,7 +107,7 @@ public class Cage {
                 break;
         }
         if(isAnimalCompatible(id) && isHabitatCompatible(buffer.getHabitats())) {
-            animals.add(temp);
+            animals.add(buffer);
         }
     }
 }
