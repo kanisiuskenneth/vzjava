@@ -9,7 +9,7 @@ import util.Renderable;
  * Created by Richard on 26-Mar-17.
  */
 public abstract class Animal implements Renderable {
-    private String name;
+    private StringBuffer name;
     private int weight;
     private int id;
     private Position position;
@@ -17,14 +17,14 @@ public abstract class Animal implements Renderable {
     protected List<Integer> food_type;
     protected List<Character> habitats;
     protected Set<Integer> incompatible;
-    protected String filum;
-    protected String kelas;
-    protected String ordo;
-    protected String famili;
-    protected String genus;
-    protected String spesies;
+    protected StringBuffer filum;
+    protected StringBuffer kelas;
+    protected StringBuffer ordo;
+    protected StringBuffer famili;
+    protected StringBuffer genus;
+    protected StringBuffer spesies;
 
-    public Animal(String animal_name, int animal_weight, int identifier, Position pos, char sym) {
+    public Animal(StringBuffer animal_name, int animal_weight, int identifier, Position pos, char sym) {
         name = animal_name;
         weight = animal_weight;
         id = identifier;
@@ -72,7 +72,7 @@ public abstract class Animal implements Renderable {
         return habitats;
     }
 
-    public String getName() {
+    public StringBuffer getName() {
         return name;
     }
 }

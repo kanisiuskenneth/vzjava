@@ -10,7 +10,7 @@ import java.util.HashSet;
  */
 
 public class Jellyfish extends Animal {
-    public Jellyfish(String name, int row, int col) {
+    public Jellyfish(StringBuffer name, int row, int col) {
         super(name, 1, 14, Position.makePos(row, col), 'j');
         food_type = new ArrayList<Integer>();
         habitats = new ArrayList<Character>();

@@ -9,7 +9,7 @@ import java.util.HashSet;
  * Created by Richard on 26-Mar-17.
  */
 public class Seal extends Animal {
-    public Seal(String name, int row, int col) {
+    public Seal(StringBuffer name, int row, int col) {
         super(name, 30, 12, Position.makePos(row, col), '=');
         food_type = new ArrayList<Integer>();
         habitats = new ArrayList<Character>();

@@ -9,7 +9,7 @@ import java.util.HashSet;
  * Created by Richard on 26-Mar-17.
  */
 public class Cockatoo extends Animal {
-    public Cockatoo(String name, int row, int col) {
+    public Cockatoo(StringBuffer name, int row, int col) {
         super (name, 2, 18, Position.makePos(row,col), 'c');
         food_type = new ArrayList<Integer>();
         habitats = new ArrayList<Character>();

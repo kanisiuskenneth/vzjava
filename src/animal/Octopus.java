@@ -9,7 +9,7 @@ import java.util.HashSet;
  * Created by Richard on 26-Mar-17.
  */
 public class Octopus extends Animal {
-    public Octopus(String name, int row, int col) {
+    public Octopus(StringBuffer name, int row, int col) {
         super(name, 15, 15, Position.makePos(row, col), 'o');
         food_type = new ArrayList<Integer>();
         habitats = new ArrayList<Character>();
