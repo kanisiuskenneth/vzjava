@@ -1,4 +1,4 @@
-package cages;
+package cage;
 
 import animal.*;
 import animal.Chimpanzee;
@@ -14,10 +14,13 @@ import java.util.List;
 public class Cage {
     public HashSet<Cell> cells = new HashSet<Cell>();
     public HashSet<Animal> animals = new HashSet<Animal>();
+    private char type;
 
-    public Cage(HashSet<Cell> c, HashSet<Animal> a) {
-        cells = c;
-        animals = a;
+    public Cage(char _type) {
+        type = _type;
+    }
+    public char getType() {
+        return type;
     }
     private boolean isAnimalCompatible(int id) {
         boolean f = true;
@@ -29,11 +32,11 @@ public class Cage {
         return f;
     }
     private boolean isHabitatCompatible(List<Character> hab) {
-        boolean f = true;
+        boolean f = false;
         for (Cell it : cells) {
             for(Character jt : hab) {
-                if (((Habitat) it).getHabitatType() != jt) {
-                    f = false;
+                if (((Habitat) it).getHabitatType() == jt) {
+                    f = true;
                 }
             }
         }
