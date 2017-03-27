@@ -1,8 +1,11 @@
 package animal;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.List;
 import util.Position;
+
 
 /**
  * Created by Richard on 26-Mar-17.
@@ -30,7 +33,7 @@ public class Animal {
         food_type = new ArrayList<Integer>();
         habitats = new ArrayList<Character>();
         incompatible = new HashSet<Integer>();
-        switch (identifer) {
+        switch (identifier) {
             case 1:
                 weight = 50;
                 symbol = 'v';
@@ -160,7 +163,7 @@ public class Animal {
             case 9:
                 weight = 80;
                 symbol = 'k';
-                food_type.sdd(1);
+                food_type.add(1);
                 habitats.add('l');
                 filum = "Chordata";
                 kelas = "Reptilia";
@@ -247,7 +250,7 @@ public class Animal {
                 symbol = 'j';
                 food_type.add(1);
                 food_type.add(2);
-                habitats.add(1);
+                habitats.add('w');
                 filum = "Cnidaria";
                 kelas = "Scyphozoa";
                 ordo = "Semaeostomeae";

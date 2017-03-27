@@ -3,11 +3,11 @@ import util.Matrix;
 /**
  * Created by ken on 3/26/17.
  */
+
 public class Zoo {
-  public class Zoo {
     private int row;
     private int col;
-    public Matrix data;
+    private Matrix data;
 
     public Zoo(int _row, int _col) {
       row = _row;
@@ -20,5 +20,5 @@ public class Zoo {
     public int getRow() {
       return row;
     }
-  }
 }
+
