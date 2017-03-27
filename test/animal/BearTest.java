@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Created by Richard on 27-Mar-17.
  */
 public class BearTest {
-    private StringBuffer name = new StringBuffer("Pooh");
     @Test
     public void testGetWeightMethod() {
         Bear b = new Bear(new StringBuffer("Pooh"), 5, 53);
