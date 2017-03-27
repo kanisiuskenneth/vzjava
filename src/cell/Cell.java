@@ -15,15 +15,11 @@ public class Cell {
     }
 
     public char render() {
-        if((symbol == 'l' || symbol == 'w' || symbol =='a')) {
-            Habitat buff = (Habitat)this;
-            if(buff.isInCage()) {
+        if((this instanceof Habitat) && ((Habitat)this).isInCage()) {
                 return Character.toUpperCase(symbol);
-            } else {
-                return symbol;
-            }
+        } else {
+            return symbol;
         }
-        return symbol;
     }
 
     public boolean isHumanPass() {
