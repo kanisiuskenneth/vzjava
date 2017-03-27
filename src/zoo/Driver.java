@@ -1,10 +1,9 @@
 package zoo;
 
-import java.lang.Object;
 import java.util.HashSet;
 import java.util.Queue;
 import java.util.Scanner;
-import cages.Cage;
+import cage.Cage;
 import cell.*;
 import util.Position;
 import java.io.*;
@@ -14,8 +13,7 @@ import java.util.concurrent.LinkedTransferQueue;
  * Created by ken on 3/26/17.
  */
 public class Driver {
-   public Zoo zoo;
-   private char[][] map;
+   public static Zoo zoo;
    private void initZoo() throws FileNotFoundException {
        Scanner fileIn = new Scanner(new File("src/asset/map.txt"));
        try {
@@ -67,69 +65,81 @@ public class Driver {
        for(int i=0; i<zoo.getRow(); i++) {
            for (int j = 0; j < zoo.getCol(); j++) {
                char buff = (char) fileIn.read();
-
                zoo.data.setData(i, j, decideCell(buff));
-               System.out.print(zoo.data.getData(i, j).render());
            }
-           System.out.println();
            fileIn.read();
        }
        fileIn.close();
    }
 
+   private boolean isInBound(int i, int j) {
+       return i>=0 && i <zoo.getRow() && j>=0 && j<zoo.getCol();
+   }
 
-
-   private HashSet<Position> floodFill(int i, int j,char Sym) {
-       HashSet<Position> ret = new HashSet<Position>();
-       Queue<Position> floodq = new LinkedTransferQueue<Position>();
-       floodq.add(Position.makePos(i,j));
-       return ret;
-
+   private Cage getCage(int i,int j) {
+       for(Cage it : zoo.cages) {
+           if(((isInBound(i-1,j) &&it.cells.contains(zoo.getCell(i-1,j)))
+                   || (isInBound(i,j-1) && it.cells.contains(zoo.getCell(i,j-1)))
+                   || (isInBound(i,j-1) && it.cells.contains(zoo.getCell(i+1,j)))
+                   || (isInBound(i,j-1) && it.cells.contains(zoo.getCell(i,j+1))))
+                   && it.getType() == zoo.getCell(i,j).render()) {
+               return it;
+           }
+       }
+       return null;
    }
    private void initCage() throws IOException{
        BufferedReader fileIn = new BufferedReader(new FileReader("src/asset/map.txt"));
-       fileIn.readLine();
-       for(int i = 0; i < zoo.getRow(); i++) {
-           for(int j = 0; j < zoo.getCol(); j++) {
-               char curr = (char)fileIn.read();
-               Cell temp = zoo.getCell(i,j);
-               if(temp instanceof Habitat) {
-                   if(Character.isUpperCase(curr) && !((Habitat) temp).isInCage()) {
-                       HashSet<Position> flood = floodFill(i,j,temp.render());
-                       HashSet<Cell> cages = new HashSet<Cell>();
-                       for(Position it : flood) {
-                           Cell buff = zoo.getCell(it.row,it.col);
-                           ((Habitat)buff).assignCage();
-                           cages.add(temp);
+       try {
+           fileIn.readLine();
+           for (int i = 0; i < zoo.getRow(); i++) {
+               for (int j = 0; j < zoo.getCol(); j++) {
+                   char curr = (char) fileIn.read();
+                   Cell temp = zoo.getCell(i, j);
+                   if (temp instanceof Habitat) {
+                       if (Character.isUpperCase(curr) && !((Habitat) temp).isInCage()) {
+                           Cage ret = getCage(i,j);
+                           ((Habitat)zoo.getCell(i,j)).assignCage();
+                           if(ret == null ) {
+                               ret = new Cage(zoo.getCell(i,j).render());
+                               ret.cells.add(zoo.getCell(i,j));
+                               zoo.cages.add(ret);
+                           } else {
+                               ret.cells.add(zoo.getCell(i,j));
+                           }
                        }
-                       Cage C = new Cage(cages,null);
-                       zoo.cages.add(C);
                    }
                }
+               fileIn.read();
            }
-           fileIn.read();
+       } finally {
+           fileIn.close();
        }
-       fileIn.close();
    }
    private void initAnimal() throws FileNotFoundException{
        Scanner fileIn = new Scanner(new File("src/asset/map.txt"));
-       fileIn.nextLine();
-       for(int i=0; i<zoo.getRow();i++) {
+       try {
            fileIn.nextLine();
-       }
-       fileIn.next();
-       int n = fileIn.nextInt();
-       for(int i=0; i<n; i++) {
-           int id = fileIn.nextInt();
-           StringBuffer name= new StringBuffer(fileIn.next());
-           int r = fileIn.nextInt();
-           int c = fileIn.nextInt();
-           Cell x = zoo.getCell(r,c);
-           for(Cage it : zoo.cages) {
-               if(it.cells.contains(x)) {
-                   it.addAnimal(id,name,r,c);
+           for (int i = 0; i < zoo.getRow(); i++) {
+               fileIn.nextLine();
+           }
+           fileIn.next();
+           int n = fileIn.nextInt();
+           fileIn.next();
+           for (int i = 0; i < n; i++) {
+               int id = fileIn.nextInt();
+               StringBuffer name = new StringBuffer(fileIn.next());
+               int r = fileIn.nextInt();
+               int c = fileIn.nextInt();
+               Cell x = zoo.getCell(r, c);
+               for (Cage it : zoo.cages) {
+                   if (it.cells.contains(x)) {
+                       it.addAnimal(id, name, r, c);
+                   }
                }
            }
+       } finally {
+           fileIn.close();
        }
    }
    public Driver() {
@@ -137,6 +147,7 @@ public class Driver {
            initZoo();
            initCell();
            initCage();
+           initAnimal();
        }
        catch (FileNotFoundException x) {
            System.out.println("File Not Found");
