@@ -1,6 +1,6 @@
 package main;
 
-import cli.DisplayMenu;
+import gui.DisplayMenu;
 import zoo.Driver;
 
 public class Main {
