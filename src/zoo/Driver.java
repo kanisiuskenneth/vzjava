@@ -6,6 +6,7 @@ import zoo.Zoo;
 
 import java.io.*;
 import java.util.Scanner;
+import java.lang.Character;
 
 /**
  * Created by Richard on 28-Mar-17.
@@ -28,7 +29,7 @@ public class Driver {
         for (int i = 0; i < zoo.getRow(); i++) {
             for (int j = 0; j < zoo.getCol(); j++) {
                 char buffer = (char) fileIn.read();
-                zoo.data.setData(i, j, Cell(buffer));
+                zoo.data.setData(i, j, new Cell(Character.toLowerCase(buffer)));
             }
             fileIn.read();
         }
@@ -56,7 +57,7 @@ public class Driver {
                 for (int j = 0; j < zoo.getCol(); j++) {
                     char current = (char) fileIn.read();
                     Cell temp = zoo.getCell(i, j);
-                    if ((temp.render() == 'a') || (temp.render() == 'l') || (temp.render() == 'w')) {
+                    if (temp.isHabitat()) {
                         if (Character.isUpperCase(current) && !temp.IsInCage()) {
                             Cage ret = getCage(i, j);
                             zoo.getCell(i, j).assignCage();
@@ -94,6 +95,7 @@ public class Driver {
                 int row = fileIn.nextInt();
                 int col = fileIn.nextInt();
                 Cell c = zoo.getCell(row, col);
+                // Cek apakah Cell c yang diambil berada dalam sebuah cage
                 for (Cage it : zoo.cages) {
                     if (it.cells.contains(c)) {
                         it.addAnimal(id, name, row, col);
@@ -112,7 +114,7 @@ public class Driver {
             initAnimal();
         } catch (FileNotFoundException x) {
             System.out.println("File Not Found");
-        } catch (IOException) {
+        } catch (IOException x) {
             System.out.println("File Not Found");
         }
     }

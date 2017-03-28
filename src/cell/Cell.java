@@ -159,4 +159,13 @@ public class Cell {
     public void assignCage() {
         incage = true;
     }
+
+    public boolean isHabitat() {
+        return ((symbol == 'a') || (symbol == 'w') || (symbol =='l'));
+    }
+
+    public boolean isFacility() {
+        return ((symbol == '.') || (symbol == '*') || (symbol == 'e') ||
+                (symbol == 'x') || (symbol == 'r'));
+    }
 }

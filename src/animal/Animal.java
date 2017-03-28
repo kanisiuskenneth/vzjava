@@ -11,7 +11,7 @@ import util.Position;
  * Created by Richard on 26-Mar-17.
  */
 public class Animal {
-    private String name;
+    private StringBuffer name;
     private int weight;
     private int id;
     private Position position;
@@ -25,8 +25,9 @@ public class Animal {
     private String famili;
     private String genus;
     private String spesies;
+    private String sound;
 
-    public Animal(String animal_name, int identifier, Position pos) {
+    public Animal(StringBuffer animal_name, int identifier, Position pos) {
         name = animal_name;
         id = identifier;
         position = pos;
@@ -48,6 +49,7 @@ public class Animal {
                 incompatible.add(6);
                 incompatible.add(7);
                 incompatible.add(9);
+                sound = "Meee...eeek";
                 break;
             case 2:
                 weight = 60;
@@ -62,6 +64,7 @@ public class Animal {
                 incompatible.add(6);
                 incompatible.add(7);
                 incompatible.add(9);
+                sound = "Ook oook !";
                 break;
             case 3:
                 weight = 120;
@@ -78,6 +81,7 @@ public class Animal {
                 incompatible.add(6);
                 incompatible.add(7);
                 incompatible.add(9);
+                sound = "GROOWL!!";
                 break;
             case 4:
                 weight = 5200;
@@ -93,6 +97,7 @@ public class Animal {
                 incompatible.add(6);
                 incompatible.add(7);
                 incompatible.add(9);
+                sound = "eROOWRRHhh!";
                 break;
             case 5:
                 weight = 200;
@@ -108,6 +113,7 @@ public class Animal {
                 incompatible.add(6);
                 incompatible.add(7);
                 incompatible.add(9);
+                sound = "Hugh! Hough, hough!";
                 break;
             case 6:
                 weight = 150;
@@ -126,6 +132,7 @@ public class Animal {
                     }
                 }
                 incompatible.add(21);
+                sound = "Groowwlll";
                 break;
             case 7:
                 weight = 350;
@@ -144,6 +151,7 @@ public class Animal {
                     }
                 }
                 incompatible.add(21);
+                sound = "Rooaar";
                 break;
             case 8:
                 weight = 1500;
@@ -159,6 +167,7 @@ public class Animal {
                 incompatible.add(6);
                 incompatible.add(7);
                 incompatible.add(9);
+                sound = "Huuummm.....";
                 break;
             case 9:
                 weight = 80;
@@ -175,6 +184,7 @@ public class Animal {
                     incompatible.add(i);
                 }
                 incompatible.add(21);
+                sound = "....hiss....";
                 break;
             case 10:
                 weight = 1;
@@ -191,6 +201,7 @@ public class Animal {
                     incompatible.add(i);
                 }
                 incompatible.add(21);
+                sound = "blurrbb.. swoosh";
                 break;
             case 11:
                 weight = 1000;
@@ -209,6 +220,7 @@ public class Animal {
                     }
                 }
                 incompatible.add(21);
+                sound = "Shooosshhh .....";
                 break;
             case 12:
                 weight = 30;
@@ -226,6 +238,7 @@ public class Animal {
                         incompatible.add(i);
                     }
                 }
+                sound = "Woonk, woonkk!";
                 break;
             case 13:
                 weight = 150;
@@ -244,6 +257,7 @@ public class Animal {
                     }
                 }
                 incompatible.add(21);
+                sound = "Bluurrrbb blurrb";
                 break;
             case 14:
                 weight = 1;
@@ -260,6 +274,7 @@ public class Animal {
                 incompatible.add(10);
                 incompatible.add(11);
                 incompatible.add(13);
+                sound = "Shoo.. shoo...";
                 break;
             case 15:
                 weight = 15;
@@ -276,6 +291,7 @@ public class Animal {
                     incompatible.add(i);
                 }
                 incompatible.add(21);
+                sound = "Phoo ahhh";
                 break;
             case 16:
                 weight = 2;
@@ -288,6 +304,7 @@ public class Animal {
                 genus = "Tyto";
                 spesies = "alba";
                 incompatible.add(20);
+                sound = "Hoot hoot hoot";
                 break;
             case 17:
                 weight = 3;
@@ -301,6 +318,7 @@ public class Animal {
                 genus = "Pelecanus";
                 spesies = "onocrotalus";
                 incompatible.add(20);
+                sound = "Heeenkk heeeenk";
                 break;
             case 18:
                 weight = 2;
@@ -314,6 +332,7 @@ public class Animal {
                 genus = "Cacatua";
                 spesies = "sulphurea";
                 incompatible.add(20);
+                sound = "Chirp chirp";
                 break;
             case 19:
                 weight = 2;
@@ -327,6 +346,7 @@ public class Animal {
                 genus = "Ara";
                 spesies = "ararauna";
                 incompatible.add(20);
+                sound = "Squawk, HELLO! Squawk squawk";
                 break;
             case 20:
                 weight = 22;
@@ -342,6 +362,7 @@ public class Animal {
                 for (int i = 16; i < 20; i++) {
                     incompatible.add(i);
                 }
+                sound = "Phweee !!";
                 break;
             case 21:
                 weight = 35;
@@ -361,6 +382,7 @@ public class Animal {
                 incompatible.add(11);
                 incompatible.add(13);
                 incompatible.add(15);
+                sound = "Squeeekk";
                 break;
         }
     }
@@ -405,75 +427,11 @@ public class Animal {
         return habitats;
     }
 
-    public String getName() {
+    public StringBuffer getName() {
         return name;
     }
 
-    public void interact() {
-        switch(id) {
-            case 1:
-                System.out.println("Meee...eeek\n");
-                break;
-            case 2:
-                System.out.println("Ook oook !\n");
-                break;
-            case 3:
-                System.out.println("GROOWL!\n");
-                break;
-            case 4:
-                System.out.println("eROOWRRHhh!\n");
-                break;
-            case 5:
-                System.out.println("Hugh! Hough, hough!\n");
-                break;
-            case 6:
-                System.out.println("Groowwlll\n");
-                break;
-            case 7:
-                System.out.println("Rooaar\n");
-                break;
-            case 8:
-                System.out.println("Huuummm.....\n");
-                break;
-            case 9:
-                System.out.println("....hiss....\n");
-                break;
-            case 10:
-                System.out.println("blurrbb.. swoosh\n");
-                break;
-            case 11:
-                System.out.println("Shooosshhh .....\n");
-                break;
-            case 12:
-                System.out.println("Woonk, woonkk!\n");
-                break;
-            case 13:
-                System.out.println("Bluurrrbb blurrb\n");
-                break;
-            case 14:
-                System.out.println("Shoo.. shoo...\n");
-                break;
-            case 15:
-                System.out.println("Phoo ahhh\n");
-                break;
-            case 16:
-                System.out.println("Hoot hoot hoot\n");
-                break;
-            case 17:
-                System.out.println("Heeenkk heeeenk\n");
-                break;
-            case 18:
-                System.out.println("Chirp chirp\n");
-                break;
-            case 19:
-                System.out.println("Squawk, HELLO! Squawk squawk\n");
-                break;
-            case 20:
-                System.out.println("Phweee !!\n");
-                break;
-            case 21:
-                System.out.println("Squeeekk\n");
-                break;
-        }
+    public String interact() {
+        return sound;
     }
 }
