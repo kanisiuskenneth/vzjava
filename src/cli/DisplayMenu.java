@@ -1,10 +1,20 @@
+// File : DisplayMenu.java
+
 package cli;
 
 import java.util.Scanner;
 /**
- * Created by kennethhalim on 3/28/17.
+ * Created by Kanisius Kenneth Halim on 3/28/17.
+ */
+
+/**
+ * Class DisplayMenu
+ * Class command line interface yang berfungsi untuk menampilkan menu dan menerima pilihan
  */
 public class DisplayMenu {
+    /**
+     * Class constructor langsung menampilkan menu dan menerima pilihan
+     */
     public DisplayMenu() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to FriendlyZoo");
