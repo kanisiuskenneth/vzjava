@@ -2,6 +2,7 @@ package cage;
 
 import animal.Animal;
 import cell.Cell;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import util.Position;
 
 import java.util.HashSet;
@@ -31,18 +32,18 @@ public class Cage {
         return compatibility;
     }
     private boolean isHabitatCompatible(List<Character> hab) {
-        boolean compatibility = true;
+        boolean compatibility = false;
         for (Cell it : cells) {
             for (Character jt : hab) {
                 if (it.GetHabitatType() == jt) {
-                    compatibility = false;
+                    compatibility = true;
                 }
             }
         }
         return compatibility;
     }
     public void addAnimal(int id, StringBuffer name, int row, int col) {
-        Animal buffer = new Animal(name, id, Position.makePos(row,col));
+        Animal buffer = new Animal(name, id, Position.makePos(row, col));
         if (isAnimalCompatible(id) && isHabitatCompatible(buffer.getHabitats())) {
             animals.add(buffer);
         }

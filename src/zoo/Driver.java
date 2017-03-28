@@ -2,6 +2,8 @@ package zoo;
 
 import cage.Cage;
 import cell.Cell;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+import util.Position;
 import zoo.Zoo;
 
 import java.io.*;
@@ -30,6 +32,9 @@ public class Driver {
             for (int j = 0; j < zoo.getCol(); j++) {
                 char buffer = (char) fileIn.read();
                 zoo.data.setData(i, j, new Cell(Character.toLowerCase(buffer)));
+                if(buffer == 'e') {
+                    zoo.entrances.add(Position.makePos(i,j));
+                }
             }
             fileIn.read();
         }
@@ -58,7 +63,7 @@ public class Driver {
                     char current = (char) fileIn.read();
                     Cell temp = zoo.getCell(i, j);
                     if (temp.isHabitat()) {
-                        if (Character.isUpperCase(current) && !temp.IsInCage()) {
+                        if (Character.isUpperCase(current) && !temp.isInCage()) {
                             Cage ret = getCage(i, j);
                             zoo.getCell(i, j).assignCage();
                             if (ret == null) {
@@ -98,6 +103,7 @@ public class Driver {
                 // Cek apakah Cell c yang diambil berada dalam sebuah cage
                 for (Cage it : zoo.cages) {
                     if (it.cells.contains(c)) {
+                        System.out.println(id + " " + name);
                         it.addAnimal(id, name, row, col);
                     }
                 }

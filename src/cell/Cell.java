@@ -105,7 +105,11 @@ public class Cell {
     }
 
     public char render() {
-        return symbol;
+        if(this.isInCage()) {
+            return Character.toUpperCase(symbol);
+        } else {
+            return symbol;
+        }
     }
 
     public boolean isHumanPass() {
@@ -152,7 +156,7 @@ public class Cell {
       return hab_type;
     }
 
-    public boolean IsInCage() {
+    public boolean isInCage() {
       return incage;
     }
 
@@ -167,5 +171,11 @@ public class Cell {
     public boolean isFacility() {
         return ((symbol == '.') || (symbol == '*') || (symbol == 'e') ||
                 (symbol == 'x') || (symbol == 'r'));
+    }
+    public boolean isRoad() {
+        return symbol == '.' || symbol == 'e' || symbol == 'x';
+    }
+    public boolean isExit() {
+        return symbol == 'x';
     }
 }

@@ -434,4 +434,7 @@ public class Animal {
     public String interact() {
         return sound;
     }
+    public List<Integer> getFoodType() {
+        return food_type;
+    }
 }

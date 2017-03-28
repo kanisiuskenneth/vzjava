@@ -3,10 +3,6 @@ package cli;
 import animal.Animal;
 import cage.Cage;
 import cell.Cell;
-import cell.Exit;
-import cell.Habitat;
-import cell.Road;
-import jdk.nashorn.internal.runtime.regexp.joni.exception.InternalException;
 import person.Person;
 import util.Position;
 import zoo.Driver;
@@ -96,7 +92,7 @@ public class TourVirtualZoo {
         for(Position it : adj) {
             if(isInBound(it)) {
                 Cell temp = zoo.getCell(it.row, it.col);
-                if (temp instanceof Habitat && ((Habitat) temp).isInCage()) {
+                if (temp.isInCage()) {
                     for (Cage jt : zoo.cages) {
                         if (jt.cells.contains(temp) && !interacted.contains(jt)) {
                             interacted.add(jt);
@@ -117,7 +113,7 @@ public class TourVirtualZoo {
             Position it = adj.get(i);
             if(isInBound(it)) {
                 Cell temp = zoo.getCell(it.row,it.col);
-                if(temp instanceof Road && !visited.contains(temp)) {
+                if(temp.isRoad() && !visited.contains(temp)) {
                     moves.add(i);
                 }
             }
@@ -134,8 +130,9 @@ public class TourVirtualZoo {
     public void startTour() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Please enter your name");
-        int r = zoo.entrances.get((int)Math.random()).row;
-        int c = zoo.entrances.get((int)Math.random()).col;
+        Random rand = new Random();
+        int r = zoo.entrances.get(rand.nextInt(zoo.entrances.size())).row;
+        int c = zoo.entrances.get(rand.nextInt(zoo.entrances.size())).col;
         player = new Person(new StringBuffer(scan.next()),Position.makePos(r,c));
         interacted = new HashSet<Cage>();
         visited = new HashSet<Cell>();
@@ -149,7 +146,7 @@ public class TourVirtualZoo {
             System.out.print("\033[H\033[2J");
             displayZoo();
             visited.add(zoo.getCell(player.getPosition().row,player.getPosition().col));
-        } while(nextMove() && !(zoo.getCell(player.getPosition().row,player.getPosition().col) instanceof Exit ));
+        } while(nextMove() && !(zoo.getCell(player.getPosition().row,player.getPosition().col).isExit()));
 
         System.out.print("\033[H\033[2J");
         System.out.println("Tour Done");
