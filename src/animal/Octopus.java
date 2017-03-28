@@ -26,7 +26,7 @@ public class Octopus extends Animal {
             incompatible.add(i);
         }
         incompatible.add(21);
-        sound -"Phoo ahhh";
+        sound ="Phoo ahhh";
     }
     public String interact() {
         return sound;

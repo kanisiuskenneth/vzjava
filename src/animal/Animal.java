@@ -77,5 +77,5 @@ public abstract class Animal implements Renderable {
         return name;
     }
 
-    public abstract void  interact();
+    public abstract String  interact();
 }

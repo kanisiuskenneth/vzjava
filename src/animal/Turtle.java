@@ -31,7 +31,7 @@ public class Turtle extends Animal {
         incompatible.add(15);
         sound = "Squeeekk";
     }
-    public void interact() {
+    public String interact() {
         return sound;
     }
 }
