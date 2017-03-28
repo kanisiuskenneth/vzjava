@@ -75,4 +75,6 @@ public abstract class Animal implements Renderable {
     public StringBuffer getName() {
         return name;
     }
+
+    public abstract void  interact();
 }
