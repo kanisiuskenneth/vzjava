@@ -1,6 +1,7 @@
+// File : Habitat.java
+
 package cell;
 
-import cell.Cell;
 /**
  * Created by Irene Edria on 3/26/17.
  */
