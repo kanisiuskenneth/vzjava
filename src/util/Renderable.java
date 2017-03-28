@@ -10,9 +10,9 @@ package util;
  * Class Renderable berfungsi hanya sebagai interface
  */
 public interface Renderable {
-    /**
-     * Method untuk melakukan render
-     * @return karakter yang akan dirender
-     */
-     public char render();
+  /**
+   * Method untuk melakukan render
+   * @return karakter yang akan dirender
+   */
+   public char render();
 }

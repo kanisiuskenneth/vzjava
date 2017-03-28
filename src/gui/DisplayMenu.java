@@ -19,93 +19,93 @@ import javax.swing.*;
  * Class graphical user interface untuk menampilkan menu awal dan memilih menu
  */
 public class DisplayMenu extends JPanel {
-    /**
-     * Method untuk menampilkan panel introduksi
-     * I.S. : -
-     * F.S. : Kata-kata sambutan ke VirtualZoo ditampilkan ke layar
-     */
-    public static void introductionPanel() {
-        JFrame frame = new JFrame();
-        String text = "Welcome to FriendlyZoo. FriendlyZoo is\nan interactive virtual zoo. You can do many\nthings in here, have fun!";
-        JOptionPane.showMessageDialog(frame, text, "Welcome!", JOptionPane.PLAIN_MESSAGE);
-    };
+  /**
+   * Method untuk menampilkan panel introduksi
+   * I.S. : -
+   * F.S. : Kata-kata sambutan ke VirtualZoo ditampilkan ke layar
+   */
+  public static void introductionPanel() {
+    JFrame frame = new JFrame();
+    String text = "Welcome to FriendlyZoo. FriendlyZoo is\nan interactive virtual zoo. You can do many\nthings in here, have fun!";
+    JOptionPane.showMessageDialog(frame, text, "Welcome!", JOptionPane.PLAIN_MESSAGE);
+  };
 
-    public JFrame frame = new JFrame("FriendlyZoo");
+  public JFrame frame = new JFrame("FriendlyZoo");
 
-    /**
-     * Class constructor.
-     */
-    public DisplayMenu() {
+  /**
+   * Class constructor.
+   */
+  public DisplayMenu() {
 
-        introductionPanel();
+    introductionPanel();
 
-        Container panel = frame.getContentPane();
-        panel.setLayout(null);
+    Container panel = frame.getContentPane();
+    panel.setLayout(null);
 
-        JButton button1 = new JButton ("1. Display Virtual Zoo");
-        button1.setBackground(Color.black);
-        button1.setBounds(90, 50, 220, 30);
+    JButton button1 = new JButton ("1. Display Virtual Zoo");
+    button1.setBackground(Color.black);
+    button1.setBounds(90, 50, 220, 30);
 
-        JButton button2 = new JButton("2. Tour Virtual Zoo");
-        button1.setBackground(Color.black);
-        button2.setBounds(90, 80, 220, 30);
+    JButton button2 = new JButton("2. Tour Virtual Zoo");
+    button1.setBackground(Color.black);
+    button2.setBounds(90, 80, 220, 30);
 
-        JButton button3 = new JButton("3. Display Food Portion");
-        button3.setBackground(Color.black);
-        button3.setBounds(90, 110, 220, 30);
+    JButton button3 = new JButton("3. Display Food Portion");
+    button3.setBackground(Color.black);
+    button3.setBounds(90, 110, 220, 30);
 
-        JButton button4 = new JButton("4. Exit");
-        button4.setBackground(Color.black);
-        button4.setBounds(90, 140, 220, 30);
-
-
-        panel.add(button1);
-        panel.add(button2);
-        panel.add(button3);
-        panel.add(button4);
+    JButton button4 = new JButton("4. Exit");
+    button4.setBackground(Color.black);
+    button4.setBounds(90, 140, 220, 30);
 
 
-        button1.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed (ActionEvent e){
-                        DisplayVirtualZoo buff = new DisplayVirtualZoo();
-                    }
-                }
-        );
+    panel.add(button1);
+    panel.add(button2);
+    panel.add(button3);
+    panel.add(button4);
 
-        button2.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        TourVirtualZoo buff = new TourVirtualZoo();
-                    }
-                }
-        );
 
-        button3.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        DisplayFoodPortion buff = new DisplayFoodPortion();
-                    }
-                }
-        );
+    button1.addActionListener(
+        new ActionListener() {
+          @Override
+          public void actionPerformed (ActionEvent e){
+            DisplayVirtualZoo buff = new DisplayVirtualZoo();
+          }
+        }
+    );
 
-        button4.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed (ActionEvent e) {
-                        System.exit(0);
-                    }
-                }
-        );
+    button2.addActionListener(
+        new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            TourVirtualZoo buff = new TourVirtualZoo();
+          }
+        }
+    );
 
-        frame.setSize(400, 300);
-        frame.setVisible(true);
-        frame.setLocationRelativeTo(null);
-        frame.setResizable(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    button3.addActionListener(
+        new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+            DisplayFoodPortion buff = new DisplayFoodPortion();
+          }
+        }
+    );
 
-    }
+    button4.addActionListener(
+        new ActionListener() {
+          @Override
+          public void actionPerformed (ActionEvent e) {
+            System.exit(0);
+          }
+        }
+    );
+
+    frame.setSize(400, 300);
+    frame.setVisible(true);
+    frame.setLocationRelativeTo(null);
+    frame.setResizable(true);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+  }
 }

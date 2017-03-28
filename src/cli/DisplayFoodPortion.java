@@ -14,13 +14,13 @@ import zoo.Zoo;
  * Class command line interface untuk menampilkan banyaknya food_portion yang dibutuhkan Animal di Zoo
  */
 public class DisplayFoodPortion {
-    Zoo zoo = Driver.zoo;
+  Zoo zoo = Driver.zoo;
 
-    /**
-     * Class constructor menampilkan food_portion yang dibutuhkan dalam Zoo
-     */
-    public DisplayFoodPortion() {
-        System.out.println("Food Portion Needed for Carnivore: " + zoo.getFoodPortionCarnivore() + "kg");
-        System.out.println("Food Portion Needed for Herbivore: " + zoo.getFoodPortionHerbivore() + "kg");
-    }
+  /**
+   * Class constructor menampilkan food_portion yang dibutuhkan dalam Zoo
+   */
+  public DisplayFoodPortion() {
+    System.out.println("Food Portion Needed for Carnivore: " + zoo.getFoodPortionCarnivore() + "kg");
+    System.out.println("Food Portion Needed for Herbivore: " + zoo.getFoodPortionHerbivore() + "kg");
+  }
 }

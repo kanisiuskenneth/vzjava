@@ -22,16 +22,16 @@ public class Person {
    * @param pos posisi awal dalam map dari person yang dibentuk
    */
   public Person(StringBuffer alias, Position pos) {
-    name = alias;
-    position = pos;
-    symbol = 'P';
+  name = alias;
+  position = pos;
+  symbol = 'P';
   }
 
   /**
    * @return posisi dari Person
    */
   public Position getPosition() {
-    return position;
+  return position;
   }
 
   /**
@@ -40,7 +40,7 @@ public class Person {
    * F.S. : posisi person berubah dengan row berkurang 1
    */
   public void moveUp() {
-    position.row--;
+  position.row--;
   }
 
   /**
@@ -49,7 +49,7 @@ public class Person {
    * F.S. : posisi person berubah dengan row bertambah 1
    */
   public void moveDown() {
-    position.row++;
+  position.row++;
   }
 
   /**
@@ -58,7 +58,7 @@ public class Person {
    * F.S. : posisi person berubah dengan col berkurang 1
    */
   public void moveLeft() {
-    position.col--;
+  position.col--;
   }
 
   /**
@@ -67,7 +67,7 @@ public class Person {
    * F.S. : posisi person berubah dengan col bertambah 1
    */
   public void moveRight() {
-    position.col++;
+  position.col++;
   }
 
   /**
@@ -75,6 +75,6 @@ public class Person {
    * @return symbol dari person dalam map
    */
   public char render() {
-    return symbol;
+  return symbol;
   }
 }
