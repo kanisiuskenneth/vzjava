@@ -1,14 +1,25 @@
+// File : Eagle.java
+
 package animal;
 
-import animal.Animal;
 import util.Position;
 import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
- * Created by Richard on 26-Mar-17.
+ * Created by Ferdinandus Richard on 26-Mar-17.
+ */
+
+/**
+ * Class Eagle adalah turunan dari class Animal
  */
 public class Eagle extends Animal {
+    /**
+     * Class constructor.
+     * @param name nama dari Eagle yang dibentuk
+     * @param row baris dalam map, tempat Eagle diposisikan
+     * @param col kolom dalam map, tempat Eagle diposisikan
+     */
     public Eagle(StringBuffer name, int row, int col) {
         super(name, 22, 20, Position.makePos(row, col), 'q');
         food_type = new ArrayList<Integer>();
@@ -27,6 +38,11 @@ public class Eagle extends Animal {
         }
         sound = "Phweee !!";
     }
+
+    /**
+     * Method untuk mendapatkan suara interaksi dengan Eagle
+     * @return String sound dari Eagle
+     */
     public String interact() {
         return sound;
     }

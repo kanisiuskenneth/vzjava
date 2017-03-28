@@ -13,7 +13,6 @@ import util.Renderable;
 
 /**
  * Abstract class Animal yang mengimplementasikan kelas interface renderable
- * Menciptakan Animal beserta atributnya
  */
 public abstract class Animal implements Renderable {
     private StringBuffer name;

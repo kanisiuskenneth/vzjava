@@ -17,7 +17,7 @@ public class LionTest {
     @Test
     public void testGetIdMethod() {
         Lion b = new Lion(new StringBuffer("Simba"), 8, 17);
-        assertTrue(b.getId() == 9);
+        assertTrue(b.getId() == 7);
         System.out.println("Class Lion getId method correct");
     }
 

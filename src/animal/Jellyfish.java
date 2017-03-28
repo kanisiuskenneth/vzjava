@@ -1,15 +1,25 @@
+// File : Jellyfish.java
+
 package animal;
 
-import animal.Animal;
 import util.Position;
 import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
- * Created by Richard on 26-Mar-17.
+ * Created by Daniel Christian on 26-Mar-17.
  */
 
+/**
+ * Class Jellyfish adalah turunan dari class Animal
+ */
 public class Jellyfish extends Animal {
+    /**
+     * Class constructor.
+     * @param name nama dari Jellyfish yang dibentuk
+     * @param row baris dalam map, tempat Jellyfish diposisikan
+     * @param col kolom dalam map, tempat Jellyfish diposisikan
+     */
     public Jellyfish(StringBuffer name, int row, int col) {
         super(name, 1, 14, Position.makePos(row, col), 'j');
         food_type = new ArrayList<Integer>();
@@ -29,6 +39,11 @@ public class Jellyfish extends Animal {
         incompatible.add(13);
         sound = "Shoo.. shoo...";
     }
+
+    /**
+     * Method untuk mendapatkan suara interaksi dengan Jellyfish
+     * @return String suara dari Jellyfish
+     */
     public String interact() {
         return sound;
     }

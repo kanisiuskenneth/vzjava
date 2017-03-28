@@ -1,14 +1,24 @@
+// File : Bear.java
+
 package animal;
 
-import animal.Animal;
 import util.Position;
 import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
- * Created by Richard on 26-Mar-17.
+ * Created by Ferdinandus Richard on 26-Mar-17.
+ */
+
+/**
+ * Class Bear adalah turunan dari class Animal.
  */
 public class Bear extends Animal {
+    /** Class constructor.
+     * @param name nama dari Bear
+     * @param row baris dalam map, tempat Bear akan diposisikan
+     * @param col kolom dalam map, tempat Bear akan diposisikan
+     */
     public Bear(StringBuffer name, int row, int col) {
         super(name, 120,3,Position.makePos(row,col),'@' );
         food_type = new ArrayList<Integer>();
@@ -28,6 +38,11 @@ public class Bear extends Animal {
         incompatible.add(9);
         sound = "GROOWL!!";
     }
+
+    /**
+     * Method untuk mendapatkan suara interaksi dengan Bear
+     * @return String suara dari Bear
+     */
     public String interact() {
         return sound;
     }

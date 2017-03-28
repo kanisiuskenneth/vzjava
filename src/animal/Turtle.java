@@ -1,14 +1,25 @@
+// File : Turtle.java
+
 package animal;
 
-import animal.Animal;
 import util.Position;
 import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
- * Created by Richard on 26-Mar-17.
+ * Created by Daniel Christian on 26-Mar-17.
+ */
+
+/**
+ * Class Turtle adalah turunan dari class Animal
  */
 public class Turtle extends Animal {
+    /**
+     * Class constructor.
+     * @param name nama dari Turtle yang dibentuk
+     * @param row baris dalam map, tempat Turtle diposisikan
+     * @param col kolom dalam map, tempat Turtle diposisikan
+     */
     public Turtle(StringBuffer name, int row, int col) {
         super(name, 35, 21, Position.makePos(row, col), ':');
         food_type = new ArrayList<Integer>();
@@ -31,6 +42,11 @@ public class Turtle extends Animal {
         incompatible.add(15);
         sound = "Squeeekk";
     }
+
+    /**
+     * Method untuk mendapatkan suara interaksi dengan Turtle
+     * @return String sound dari Turtle
+     */
     public String interact() {
         return sound;
     }

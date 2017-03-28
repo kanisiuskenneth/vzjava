@@ -1,14 +1,25 @@
+// File: Komodo.java
+
 package animal;
 
-import animal.Animal;
 import util.Position;
 import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
- * Created by Richard on 26-Mar-17.
+ * Created by Daniel Christian on 26-Mar-17.
+ */
+
+/**
+ * Class Komodo adalah turunan dari class Animal
  */
 public class Komodo extends Animal {
+    /**
+     * Class constructor.
+     * @param name nama dari Komodo yang dibentuk
+     * @param row baris dalam map, tempat Komodo diposisikan
+     * @param col kolom dalam map, tempat Komodo diposisikan
+     */
     public Komodo(StringBuffer name, int row, int col) {
         super (name, 80, 9, Position.makePos(row, col), 'k');
         food_type = new ArrayList<Integer>();
@@ -29,6 +40,11 @@ public class Komodo extends Animal {
         incompatible.add(21);
         sound = "....hiss....";
     }
+
+    /**
+     * Method untuk mendapatkan suara interaksi dengan Komodo
+     * @return String sound dari Komodo
+     */
     public String interact() {
         return sound;
     }

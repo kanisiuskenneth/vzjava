@@ -1,14 +1,25 @@
+// File : Giraffe.java
+
 package animal;
 
-import animal.Animal;
 import util.Position;
 import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
- * Created by Richard on 26-Mar-17.
+ * Created by Daniel Christian on 26-Mar-17.
+ */
+
+/**
+ * Class Giraffe adalah turunan dari class Animal
  */
 public class Giraffe extends Animal {
+    /**
+     * Class constructor.
+     * @param name nama dari Giraffe yang dibentuk
+     * @param row baris dalam map, tempat Giraffe akan diposisikan
+     * @param col kolom dalam map, tempat Giraffe akan diposisikan
+     */
     public Giraffe(StringBuffer name, int row, int col) {
         super(name, 1500, 8, Position.makePos(row, col), 'g');
         food_type = new ArrayList<Integer>();
@@ -27,6 +38,11 @@ public class Giraffe extends Animal {
         incompatible.add(9);
         sound = "Huuummm.....";
     }
+
+    /**
+     * Method untuk mendapatkan suara interaksi dengan Giraffe
+     * @return String sound dari Giraffe
+     */
     public String interact() {
         return sound;
     }

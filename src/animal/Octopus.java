@@ -1,14 +1,25 @@
+// File : Octopus.java
+
 package animal;
 
-import animal.Animal;
 import util.Position;
 import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
- * Created by Richard on 26-Mar-17.
+ * Created by Daniel Christian on 26-Mar-17.
+ */
+
+/**
+ * Class Octopus adalah turunan dari class Animal
  */
 public class Octopus extends Animal {
+    /**
+     * Class constructor.
+     * @param name nama dari Octopus yang dibnetuk
+     * @param row baris dalam map, tempat Octopus diposisikan
+     * @param col kolom dalam map, tempat Octopus diposisikan
+     */
     public Octopus(StringBuffer name, int row, int col) {
         super(name, 15, 15, Position.makePos(row, col), 'o');
         food_type = new ArrayList<Integer>();
@@ -28,6 +39,11 @@ public class Octopus extends Animal {
         incompatible.add(21);
         sound ="Phoo ahhh";
     }
+
+    /**
+     * Method untuk mendapatkan suara interaksi dengan Octopus
+     * @return String sound dari Octopus
+     */
     public String interact() {
         return sound;
     }

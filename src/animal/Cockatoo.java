@@ -1,14 +1,25 @@
+// File : Cockatoo.java
+
 package animal;
 
-import animal.Animal;
 import util.Position;
 import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
- * Created by Richard on 26-Mar-17.
+ * Created by Ferdinandus Richard on 26-Mar-17.
+ */
+
+/**
+ * Class Cockatoo adalah turunan dari class Animal
  */
 public class Cockatoo extends Animal {
+    /**
+     * Class constructor.
+     * @param name nama dari Cockatoo yang dibentuk
+     * @param row baris dalam map, tempat Cockatoo akan diposisikan
+     * @param col kolom dalam map, tempat Cockatoo akan diposisikan
+     */
     public Cockatoo(StringBuffer name, int row, int col) {
         super (name, 2, 18, Position.makePos(row,col), 'c');
         food_type = new ArrayList<Integer>();
@@ -25,6 +36,11 @@ public class Cockatoo extends Animal {
         incompatible.add(20);
         sound = "Chirp chirp";
     }
+
+    /**
+     * Method untuk mendapatkan suara interaksi dengan Cockatoo
+     * @return String suara dari Cockatoo
+     */
     public String interact() {
         return sound;
     }
