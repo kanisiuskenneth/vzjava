@@ -28,9 +28,9 @@ public class Stingray extends Animal {
             }
         }
         incompatible.add(21);
+        sound = "Bluurrrbb blurrb";
     }
-
-    public void interact() {
-        System.out.println("Bluurrrbb blurrb\n");
+    public String interact() {
+        return sound;
     }
 }

@@ -25,9 +25,9 @@ public class Eagle extends Animal {
         for (int i = 16; i < 20; i++) {
             incompatible.add(i);
         }
+        sound = "Phweee !!";
     }
-
-    public void interact() {
-        System.out.println("Phweee !!\n");
+    public String interact() {
+        return sound;
     }
 }

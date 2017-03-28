@@ -28,9 +28,9 @@ public class Lion extends Animal {
             }
         }
         incompatible.add(21);
+        sound = "Rooaar";
     }
-
-    public void interact() {
-        System.out.println("Rooaar\n");
+    public String interact() {
+        return sound;
     }
 }

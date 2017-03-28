@@ -22,9 +22,9 @@ public class Owl extends Animal {
         genus = "Tyto";
         spesies = "alba";
         incompatible.add(20);
+        sound = "Hoot hoot hoot";
     }
-
-    public void interact() {
-        System.out.println("Hoot hoot hoot\n");
+    public String interact() {
+        return sound;
     }
 }

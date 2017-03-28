@@ -27,9 +27,9 @@ public class Komodo extends Animal {
             incompatible.add(i);
         }
         incompatible.add(21);
+        sound = "....hiss....";
     }
-
-    public void interact() {
-        System.out.println("....hiss....\n");
+    public String interact() {
+        return sound;
     }
 }

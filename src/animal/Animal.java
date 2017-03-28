@@ -14,6 +14,7 @@ public abstract class Animal implements Renderable {
     private int id;
     private Position position;
     private char symbol;
+    protected String sound;
     protected List<Integer> food_type;
     protected List<Character> habitats;
     protected Set<Integer> incompatible;

@@ -25,9 +25,9 @@ public class Zebra extends Animal {
         incompatible.add(6);
         incompatible.add(7);
         incompatible.add(9);
+        sound = "Hugh! Hough, hough!";
     }
-
-    public void interact() {
-        System.out.println("Hugh! Hough, hough!\n");
+    public String interact() {
+        return sound;
     }
 }

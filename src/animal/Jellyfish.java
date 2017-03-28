@@ -27,9 +27,9 @@ public class Jellyfish extends Animal {
         incompatible.add(10);
         incompatible.add(11);
         incompatible.add(13);
+        sound = "Shoo.. shoo...";
     }
-
-    public void interact() {
-        System.out.println("Shoo.. shoo...\n");
+    public String interact() {
+        return sound;
     }
 }

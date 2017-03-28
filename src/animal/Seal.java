@@ -27,9 +27,9 @@ public class Seal extends Animal {
                 incompatible.add(i);
             }
         }
+        sound = "Woonk, woonkk!";
     }
-
-    public void interact() {
-        System.out.println("Woonk, woonkk!\n");
+    public String interact() {
+        return sound;
     }
 }

@@ -23,9 +23,9 @@ public class Pelican extends Animal {
         genus = "Pelecanus";
         spesies = "onocrotalus";
         incompatible.add(20);
+        sound = "Heeenkk heeeenk";
     }
-
-    public void interact() {
-        System.out.println("Heeenkk heeeenk\n");
+    public String interact() {
+        return sound;
     }
 }

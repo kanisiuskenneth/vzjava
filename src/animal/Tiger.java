@@ -28,10 +28,10 @@ public class Tiger extends Animal {
             }
         }
         incompatible.add(21);
+        sound = "Groowwlll";
     }
-
-    public void interact() {
-        System.out.println("Groowwlll\n");
+    public String interact() {
+        return sound;
     }
 }
 

@@ -23,9 +23,9 @@ public class Parrot extends Animal {
         genus = "Ara";
         spesies = "ararauna";
         incompatible.add(20);
+        sound = "Squawk, HELLO! Squawk squawk";
     }
-
-    public void interact() {
-        System.out.println("Squawk, HELLO! Squawk squawk\n");
+    public String interact() {
+        return sound;
     }
 }

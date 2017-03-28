@@ -23,10 +23,10 @@ public class Cockatoo extends Animal {
         genus = "Cacatua";
         spesies = "sulphurea";
         incompatible.add(20);
+        sound = "Chirp chirp";
     }
-
-    public void interact() {
-        System.out.println("Chirp chirp\n");
+    public String interact() {
+        return sound;
     }
 }
 

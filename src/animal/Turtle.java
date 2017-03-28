@@ -29,9 +29,9 @@ public class Turtle extends Animal {
         incompatible.add(11);
         incompatible.add(13);
         incompatible.add(15);
+        sound = "Squeeekk";
     }
-
     public void interact() {
-        System.out.println("Squeeekk\n");
+        return sound;
     }
 }

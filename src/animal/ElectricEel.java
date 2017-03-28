@@ -26,9 +26,9 @@ public class ElectricEel extends Animal {
             incompatible.add(i);
         }
         incompatible.add(21);
+        sound - "blurrbb.. swoosh";
     }
-
-    public void interact() {
-        System.out.println("blurrbb.. swoosh\n");
+    public String interact() {
+        return sound;
     }
 }

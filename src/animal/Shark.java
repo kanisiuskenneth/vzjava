@@ -28,9 +28,9 @@ public class Shark extends Animal {
             }
         }
         incompatible.add(21);
+        sound = "Shooosshhh .....";
     }
-
-    public void interact() {
-        System.out.println("Shooosshhh .....\n");
+    public String interact() {
+        return sound;
     }
 }

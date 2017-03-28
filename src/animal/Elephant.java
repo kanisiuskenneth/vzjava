@@ -25,9 +25,9 @@ public class Elephant extends Animal {
         incompatible.add(6);
         incompatible.add(7);
         incompatible.add(9);
+        sound = "eROOWRRHhh!";
     }
-
-    public void interact() {
-        System.out.println("eROOWRRHhh!\n");
+    public String interact() {
+        return sound;
     }
 }

@@ -25,9 +25,9 @@ public class Deer extends Animal {
         incompatible.add(6);
         incompatible.add(7);
         incompatible.add(9);
+        sound = "Meee...eeek";
     }
-
-    public void interact() {
-        System.out.println("Meee...eeek\n");
+    public String interact() {
+        return sound;
     }
 }

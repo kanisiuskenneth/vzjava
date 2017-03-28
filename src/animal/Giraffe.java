@@ -25,9 +25,9 @@ public class Giraffe extends Animal {
         incompatible.add(6);
         incompatible.add(7);
         incompatible.add(9);
+        sound = "Huuummm.....";
     }
-
-    public void interact() {
-        System.out.println("Huuummm.....\n");
+    public String interact() {
+        return sound;
     }
 }

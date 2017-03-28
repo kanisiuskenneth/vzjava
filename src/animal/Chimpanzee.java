@@ -25,9 +25,9 @@ public class Chimpanzee extends Animal {
         incompatible.add(6);
         incompatible.add(7);
         incompatible.add(9);
+        sound = "Ook oook !";
     }
-
-    public void interact() {
-        System.out.println("Ook oook !\n");
+    public String interact() {
+        return sound;
     }
 }
