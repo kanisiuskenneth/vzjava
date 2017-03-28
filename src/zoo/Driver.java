@@ -1,19 +1,30 @@
+// File : Driver.java
+
 package zoo;
 
-import java.util.HashSet;
-import java.util.Queue;
 import java.util.Scanner;
 import cage.Cage;
 import cell.*;
 import util.Position;
 import java.io.*;
-import java.util.concurrent.LinkedTransferQueue;
 
 /**
- * Created by ken on 3/26/17.
+ * Created by Kanisius Kenneth Halim on 3/26/17.
+ */
+
+/**
+ * Class Driver
+ * Class yang berfungsi untuk inisialisasi seluruh objek zoo
  */
 public class Driver {
    public static Zoo zoo;
+
+    /**
+     * Method untuk melakukan inisialisasi ukuran dari Zoo
+     * I.S. : -
+     * F.S. : Zoo sudah dibentuk berdasar ukuran yang dibaca di dalam file
+     * @throws FileNotFoundException
+     */
    private void initZoo() throws FileNotFoundException {
        Scanner fileIn = new Scanner(new File("src/asset/map.txt"));
        try {
@@ -25,6 +36,11 @@ public class Driver {
        }
    }
 
+    /**
+     * Method yang menghasilkan jenis Cell berdasar karakternya dalam map
+     * @param x karakter dalam map sebagai penentu jenis Cell
+     * @return cell yang sudah dipilih berdasarkan karakter yang dimasukkan
+     */
    private Cell decideCell(char x) {
        Cell temp = null;
         switch(x) {
@@ -59,6 +75,12 @@ public class Driver {
        return temp;
    }
 
+    /**
+     * Melakukan inisialisasi Cell
+     * I.S. : -
+     * F.S. : Cell dalam zoo sudah diinisialisasi dan siap dipakai
+     * @throws IOException
+     */
    private void initCell() throws IOException {
        BufferedReader fileIn = new BufferedReader(new FileReader("src/asset/map.txt"));
        fileIn.readLine();
@@ -75,10 +97,22 @@ public class Driver {
        fileIn.close();
    }
 
+    /**
+     * Predikat apakah koordinat berada dalam zoo
+     * @param i baris yang ingin dicek apakah berada dalam zoo
+     * @param j kolom yang ingin dicek apakah berada dalam zoo
+     * @return boolean koordinat berada dalam zoo atau tidak
+     */
    private boolean isInBound(int i, int j) {
        return i>=0 && i <zoo.getRow() && j>=0 && j<zoo.getCol();
    }
 
+    /**
+     * Method untuk mendapatkan cage dalam koordinat zoo
+     * @param i baris dalam zoo yang ingin diambil cagenya
+     * @param j kolom dalam zoo yang ingin diambil cagenya
+     * @return cage yang sudah diambil dalam koordinat, null jika tidak ada cage
+     */
    private Cage getCage(int i,int j) {
        for(Cage it : zoo.cages) {
            if(((isInBound(i-1,j) &&it.cells.contains(zoo.getCell(i-1,j)))
@@ -91,6 +125,13 @@ public class Driver {
        }
        return null;
    }
+
+    /**
+     * Melakukan inisiasi cage ke dalam zoo
+     * I.S. : Zoo terdefinisi dengan belum ada cage
+     * F.S. : Zoo terdefinisi dengan cage yang sudah di-assign ke Zoo
+     * @throws IOException
+     */
    private void initCage() throws IOException{
        BufferedReader fileIn = new BufferedReader(new FileReader("src/asset/map.txt"));
        try {
@@ -119,6 +160,13 @@ public class Driver {
            fileIn.close();
        }
    }
+
+    /**
+     * Method untuk melakukan inisiasi Animal ke dalam Zoo
+     * I.S. : Zoo terdefinisi dengan belum ada Animal
+     * F.S. : Zoo terdefinisi dengan Animal yang sudah di-assign ke Zoo
+     * @throws FileNotFoundException
+     */
    private void initAnimal() throws FileNotFoundException{
        Scanner fileIn = new Scanner(new File("src/asset/map.txt"));
        try {
@@ -145,6 +193,13 @@ public class Driver {
            fileIn.close();
        }
    }
+
+    /**
+     * Class constructor.
+     * Melakukan inisiasi Zoo dan seluruh komponennya
+     * I.S. : -
+     * F.S. : Zoo sudah diinisiasi dan bisa dipakai
+     */
    public Driver() {
        try {
            initZoo();

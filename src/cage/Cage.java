@@ -1,3 +1,5 @@
+// File : Cage.java
+
 package cage;
 
 import animal.*;
@@ -9,39 +11,77 @@ import java.util.HashSet;
 import java.util.List;
 
 /**
- * Created by kennethhalim on 3/27/17.
+ * Created by Kanisius Kenneth Halim on 3/27/17.
+ */
+
+/**
+ * Class Cage
  */
 public class Cage {
     public HashSet<Cell> cells = new HashSet<Cell>();
     public HashSet<Animal> animals = new HashSet<Animal>();
     private char type;
 
+    /**
+     * Class Constructor.
+     * @param _type berupa char yang menandakan tipe dari sebuah Cage
+     *              'l' berarti Cage adalah Cage untuk LandHabiat
+     *              'w' berarti Cage adalah Cage untuk WaterHabitat
+     *              'a' berarti Cage adalah Cage untuk AirHabitat
+     */
     public Cage(char _type) {
         type = _type;
     }
+
+    /**
+     * Getter untuk mendapatkan type dari sebuah Cage
+     * @return type dari Cage
+     */
     public char getType() {
         return type;
     }
+
+    /**
+     * Predikat apakah Animal compatible dalam sebuah Cage
+     * @param id integer yang menandakan identifier Animal yang ingin dimasukkan
+     * @return boolean apakah Animal compatible
+     */
     private boolean isAnimalCompatible(int id) {
-        boolean f = true;
+        boolean compatible = true;
         for(Animal it : animals) {
             if(it.getIncompatible().contains(id)) {
-                f = false;
+                compatible = false;
             }
         }
-        return f;
+        return compatible;
     }
+
+    /**
+     * Predikat apakah Habitat yang bisa ditinggali Animal ada dalam list
+     * @param hab list of char yang menyatakan habitat yang bisa ditinggali Animal
+     * @return boolean apakah Habitat Animal compatible dalam Cage
+     */
     private boolean isHabitatCompatible(List<Character> hab) {
-        boolean f = false;
+        boolean compatible = false;
         for (Cell it : cells) {
             for(Character jt : hab) {
                 if (((Habitat) it).getHabitatType() == jt) {
-                    f = true;
+                    compatible = true;
                 }
             }
         }
-        return f;
+        return compatible;
     }
+
+    /**
+     * Method untuk menambahkan Animal ke dalam Cage
+     * I.S. : Cage sudah dibentuk
+     * F.S. : Animal ditambahkan ke dalam Csge jika compatible
+     * @param id identifier Animal yang ingin ditambahkan
+     * @param name nama dari Animal yang ingin ditambahkan
+     * @param r baris dalam map, tempat Animal diposisikan
+     * @param c kolom dalam map, tempat Animal diposisikan
+     */
     public void addAnimal(int id, StringBuffer name, int r, int c) {
         Animal buffer = null;
         switch (id) {

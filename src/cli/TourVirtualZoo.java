@@ -1,3 +1,5 @@
+// File : TourVirtualZoo.java
+
 package cli;
 
 import animal.Animal;
@@ -6,7 +8,6 @@ import cell.Cell;
 import cell.Exit;
 import cell.Habitat;
 import cell.Road;
-import jdk.nashorn.internal.runtime.regexp.joni.exception.InternalException;
 import person.Person;
 import util.Position;
 import zoo.Driver;
@@ -18,25 +19,38 @@ import java.util.Scanner;
 import java.util.Vector;
 
 /**
- * Created by kennethhalim on 3/28/17.
+ * Created by Kanisius Kenneth Halim on 3/28/17.
  */
 
-
-
+/**
+ * Class TourVirtualZoo
+ * Class command line interface untuk melakukan tour di virtual zoo
+ */
 public class TourVirtualZoo {
     private Zoo zoo = Driver.zoo;
     private Person player = null;
     private HashSet<Cell> visited = null;
     private HashSet<Cage> interacted = null;
 
+    /**
+     * Predikat apakah posisi berada di dalam zoo
+     * @param pos posisi yang ingin dicek
+     * @return boolean apakah pos berada di dalam lingkup zoo
+     */
     private boolean isInBound(Position pos) {
         return pos.row >= 0 && pos.row < zoo.getRow() && pos.col >=0 && pos.col < zoo.getCol();
     }
-    private boolean isAnimalHere(int i,int j) {
-        boolean f =false;
+
+    /**
+     * Predikat keberadaan animal dalam sebuah Cell
+     * @param row baris yang ingin dicek keberadaan Animalnya
+     * @param col kolom yang ingin dicek keberadaan Animalnya
+     * @return boolean keberadaan Animal dalam koordinat Cell
+     */
+    private boolean isAnimalHere(int row, int col) {
         for(Cage it : zoo.cages) {
             for(Animal jt : it.animals) {
-                if(jt.getPosition().row == i && jt.getPosition().col == j) {
+                if(jt.getPosition().row == row && jt.getPosition().col == col) {
                     return true;
                 }
             }
@@ -44,6 +58,12 @@ public class TourVirtualZoo {
         return false;
     }
 
+    /**
+     * Method untuk melakukan render Animal
+     * @param i baris dalam zoo tempat Animal ingin dirender
+     * @param j kolom dalam zoo tempat Animal ingin dirender
+     * @return character render dari Animal jika ada, null jika tidak ada
+     */
     private char renderAnimal(int i,int j) {
         for(Cage it : zoo.cages) {
             for(Animal jt : it.animals) {
@@ -54,6 +74,12 @@ public class TourVirtualZoo {
         }
         return '\0';
     }
+
+    /**
+     * Method untuk menampilkan isi zoo
+     * I.S. : -
+     * F.S. : Se-isi zoo ditampilkan beserta Animal dan Personnya
+     */
     private void displayZoo() {
         for(int i=0; i<zoo.getRow(); i++) {
             for(int j=0;j<zoo.getCol(); j++) {
@@ -68,8 +94,19 @@ public class TourVirtualZoo {
             System.out.println();
         }
     }
-    private void movePlayer(int i) {
-        switch (i) {
+
+    /**
+     * Method untuk menggerakan player di dalam zoo
+     * I.S. : Posisi Person terdefinisi
+     * F.S. : Posisi Person sudah berubah sesuai movement
+     * @param movement arah gerakan yang akan dilakukan oleh Person
+     *                 0 berarti bergerak ke atas
+     *                 1 berarti bergerak ke kiri
+     *                 2 berarti bergerak ke bawah
+     *                 3 berarti bergerak ke kanan
+     */
+    private void movePlayer(int movement) {
+        switch (movement) {
             case 0:
                 player.moveUp();
                 break;
@@ -84,6 +121,11 @@ public class TourVirtualZoo {
                 break;
         }
     }
+
+    /**
+     * Method untuk menentukan jalan selanjutnya dari Person
+     * @return boolean keberadaan jalan selanjutnya yang dapat diambil
+     */
     private boolean nextMove() {
         int x = player.getPosition().row;
         int y = player.getPosition().col;
@@ -131,6 +173,12 @@ public class TourVirtualZoo {
             return false;
         }
     }
+
+    /**
+     * Method untuk melakukan tour di virtual zoo
+     * I.S. : -
+     * F.S. : Tour berakhir dengan tidak ada jalan lagi atau sudah mencapai exit
+     */
     public void startTour() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Please enter your name");
