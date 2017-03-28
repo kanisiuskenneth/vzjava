@@ -3,6 +3,7 @@ package zoo;
 import java.util.HashSet;
 import java.util.Vector;
 
+import animal.Animal;
 import cage.Cage;
 import cell.Entrance;
 import util.Matrix;
@@ -32,5 +33,27 @@ public class Zoo {
     }
     public Cell getCell(int i, int j) {
         return data.getData(i,j);
+    }
+    public float getFoodPortionCarnivore() {
+        float sum =0;
+        for(Cage it : cages) {
+            for (Animal jt : it.animals) {
+                if(jt.getFoodType().contains(1)) {
+                    sum += jt.getWeight()*0.1/jt.getFoodType().size();
+                }
+            }
+        }
+        return sum;
+    }
+    public float getFoodPortionHerbivore() {
+        float sum =0;
+        for(Cage it : cages) {
+            for (Animal jt : it.animals) {
+                if(jt.getFoodType().contains(2)) {
+                    sum += jt.getWeight()*0.1/jt.getFoodType().size();
+                }
+            }
+        }
+        return sum;
     }
 }
