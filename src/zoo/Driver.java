@@ -31,7 +31,8 @@ public class Driver {
         for (int i = 0; i < zoo.getRow(); i++) {
             for (int j = 0; j < zoo.getCol(); j++) {
                 char buffer = (char) fileIn.read();
-                zoo.data.setData(i, j, new Cell(Character.toLowerCase(buffer)));
+                Cell temp = new Cell(Character.toLowerCase(buffer));
+                zoo.data.setData(i, j, temp);
                 if(buffer == 'e') {
                     zoo.entrances.add(Position.makePos(i,j));
                 }
@@ -47,9 +48,9 @@ public class Driver {
         for(Cage it : zoo.cages) {
             if(((isInBound(row-1,col) &&it.cells.contains(zoo.getCell(row-1,col)))
                     || (isInBound(row,col-1) && it.cells.contains(zoo.getCell(row,col-1)))
-                    || (isInBound(row,col-1) && it.cells.contains(zoo.getCell(row+1,col)))
-                    || (isInBound(row,col-1) && it.cells.contains(zoo.getCell(row,col+1))))
-                    && it.getType() == zoo.getCell(row,col).render()) {
+                    || (isInBound(row+1,col) && it.cells.contains(zoo.getCell(row+1,col)))
+                    || (isInBound(row,col+1) && it.cells.contains(zoo.getCell(row,col+1))))
+                    && Character.toUpperCase(it.getType()) == Character.toUpperCase(zoo.getCell(row,col).render())) {
                 return it;
             }
         }
@@ -58,6 +59,7 @@ public class Driver {
     private void initCage() throws IOException {
         BufferedReader fileIn = new BufferedReader(new FileReader("src/asset/map.txt"));
         try {
+            fileIn.readLine();
             for (int i = 0; i < zoo.getRow(); i++) {
                 for (int j = 0; j < zoo.getCol(); j++) {
                     char current = (char) fileIn.read();
@@ -103,7 +105,6 @@ public class Driver {
                 // Cek apakah Cell c yang diambil berada dalam sebuah cage
                 for (Cage it : zoo.cages) {
                     if (it.cells.contains(c)) {
-                        System.out.println(id + " " + name);
                         it.addAnimal(id, name, row, col);
                     }
                 }
