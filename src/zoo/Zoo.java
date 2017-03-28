@@ -7,6 +7,7 @@ import cage.Cage;
 import cell.Entrance;
 import util.Matrix;
 import cell.Cell;
+import util.Position;
 
 
 /**
@@ -17,7 +18,7 @@ public class Zoo {
     private int col;
     public Matrix data;
     public HashSet<Cage> cages = new HashSet<Cage>();
-    public Vector<Entrance>  entrances = new Vector<Entrance>();
+    public Vector<Position>  entrances = new Vector<Position>();
     public Zoo(int _row, int _col) {
         row = _row;
         col = _col;

@@ -66,6 +66,9 @@ public class Driver {
            for (int j = 0; j < zoo.getCol(); j++) {
                char buff = (char) fileIn.read();
                zoo.data.setData(i, j, decideCell(buff));
+               if(buff == 'e') {
+                   zoo.entrances.add(Position.makePos(i,j));
+               }
            }
            fileIn.read();
        }
