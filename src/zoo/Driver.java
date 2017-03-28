@@ -13,6 +13,11 @@ import java.lang.Character;
 /**
  * Created by Kanisius Kenneth Halim on 28-Mar-17.
  */
+
+/**
+ * Class Driver
+ * Class ini berfungsi untuk menciptakan Zoo dan objek lainnya
+ */
 public class Driver {
     public static Zoo zoo;
 
