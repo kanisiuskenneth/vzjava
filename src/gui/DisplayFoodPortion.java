@@ -1,3 +1,5 @@
+// File : DisplayFoodPortion.java
+
 package gui;
 
 import zoo.Driver;
@@ -11,8 +13,17 @@ import java.awt.event.ActionListener;
 /**
  * Created by Irene Edria on 3/28/17.
  */
+
+/**
+ * Class DisplayFoodPortion
+ * Class graphical user interface untuk menampilkan porsi makanan yang diperlukan Zoo
+ */
 public class DisplayFoodPortion extends JPanel {
   Zoo zoo = Driver.zoo;
+
+    /**
+     * Class constructor.
+     */
   public DisplayFoodPortion() {
     JFrame frame = new JFrame ("Display Food Portion");
 

@@ -1,3 +1,5 @@
+// File : DisplayVirtualZoo.java
+
 package gui;
 
 import animal.Animal;
@@ -6,27 +8,33 @@ import zoo.Zoo;
 import cage.Cage;
 
 import java.awt.*;
-import java.util.Scanner;
-import cli.DisplayMenu;
 
 import java.awt.event.*;
-import java.util.Random;
 
 import javax.swing.*;
 
-
 /**
  * Created by Irene Edria on 3/28/17.
+ */
+
+/**
+ * Class DisplayVirtualZoo
+ * Class graphical user interface untuk menampilkan peta
  */
 public class DisplayVirtualZoo {
 
     private Zoo zoo = Driver.zoo;
 
-    private boolean isAnimalHere(int i, int j) {
-        boolean f = false;
+    /**
+     * Predikat untuk menentukan keberadaan Animal dalam koordinat
+     * @param row baris yang ingin ditentukan keberadaan Animalnya
+     * @param col kolom yang ingin ditentukan keberadaan Animalnya
+     * @return boolean keberadaan Animal dalam koordinat
+     */
+    private boolean isAnimalHere(int row, int col) {
         for (Cage it : zoo.cages) {
             for (Animal jt : it.animals) {
-                if (jt.getPosition().row == i && jt.getPosition().col == j) {
+                if (jt.getPosition().row == row && jt.getPosition().col == col) {
                     return true;
                 }
             }
@@ -34,6 +42,12 @@ public class DisplayVirtualZoo {
         return false;
     }
 
+    /**
+     * Method untuk mendapatkan karakter Animal yang ada dalam koordinat
+     * @param i baris dari Animal yang ingin diambil karakternya
+     * @param j kolom dari Animal yang ingin diambil karakternya
+     * @return karakter dari Animal yang ada, null jika tidak ada
+     */
     private char renderAnimal(int i, int j) {
         for (Cage it : zoo.cages) {
             for (Animal jt : it.animals) {
@@ -45,11 +59,20 @@ public class DisplayVirtualZoo {
         return ' ';
     }
 
+
+    /**
+     * Predikat apakah sebuah koordinat berada dalam Zoo atau tidak
+     * @param i baris yang ingin dicek apakah berada dalam Zoo
+     * @param j kolom yang ingin dicek apakah berada dalam Zoo
+     * @return boolean koordinat berada dalam Zoo
+     */
     private boolean isInBound(int i, int j) {
         return i > 0 && i <= zoo.getRow() && j > 0 && j <= zoo.getCol();
     }
 
-
+    /**
+     * Class constructor.
+     */
     public DisplayVirtualZoo() {
 
 

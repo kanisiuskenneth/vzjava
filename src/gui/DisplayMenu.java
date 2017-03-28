@@ -1,24 +1,29 @@
+// File : DisplayMenu.java
+
 package gui;
+
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JOptionPane;
 import java.awt.Container;
 import java.awt.event.*;
-import java.beans.PropertyChangeListener;
-import java.util.Random;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.font.FontRenderContext;
-import java.awt.geom.Rectangle2D;
-import java.util.Scanner;
+
 /**
  * Created by Irene Edria on 3/28/17.
  */
-public class DisplayMenu extends JPanel {
 
+/**
+ * Class DisplayMenu
+ * Class graphical user interface untuk menampilkan menu awal dan memilih menu
+ */
+public class DisplayMenu extends JPanel {
+    /**
+     * Method untuk menampilkan panel introduksi
+     * I.S. : -
+     * F.S. : Kata-kata sambutan ke VirtualZoo ditampilkan ke layar
+     */
     public static void introductionPanel() {
         JFrame frame = new JFrame();
         String text = "Welcome to FriendlyZoo. FriendlyZoo is\nan interactive virtual zoo. You can do many\nthings in here, have fun!";
@@ -27,6 +32,9 @@ public class DisplayMenu extends JPanel {
 
     public JFrame frame = new JFrame("FriendlyZoo");
 
+    /**
+     * Class constructor.
+     */
     public DisplayMenu() {
 
         introductionPanel();
