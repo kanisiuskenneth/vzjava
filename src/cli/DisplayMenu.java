@@ -19,9 +19,11 @@ public class DisplayMenu {
             switch(choice) {
                 case 1:
                     DisplayVirtualZoo buff = new DisplayVirtualZoo();
+                    buff.menu();
                     break;
                 case 2:
-                    /*TourVirtualZoo buff = new TourVirtualZoo();*/
+                    TourVirtualZoo buff2 = new TourVirtualZoo();
+                    buff2.startTour();
                     break;
                 case 3:
                    /* DisplayFoodPortion buff = new DisplayFoodPortion();*/

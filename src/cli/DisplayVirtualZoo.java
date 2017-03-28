@@ -34,14 +34,26 @@ public class DisplayVirtualZoo {
                 }
             }
         }
-        return ' ';
+        return '\0';
     }
 
     private boolean isInBound(int i, int j) {
         return i>0 && i <=zoo.getRow() && j>0 && j<=zoo.getCol();
     }
 
-    public DisplayVirtualZoo() {
+    public void display(int lr,int lc,int rr, int rc) {
+        for(int i =lr-1; i <= rr-1; i++) {
+            for(int j= lc-1; j<= rc-1;j++) {
+                if(isAnimalHere(i,j)) {
+                    System.out.print(renderAnimal(i,j));
+                } else {
+                    System.out.print(zoo.getCell(i, j).render());
+                }
+            }
+            System.out.println();
+        }
+    }
+    public void menu() {
         int lr,lc,rr,rc;
         Scanner scan = new Scanner(System.in);
         for(;;) {
@@ -55,16 +67,7 @@ public class DisplayVirtualZoo {
                 break;
             System.out.println("Wrong Input");
         }
-        for(int i =lr-1; i <= rr-1; i++) {
-            for(int j= lc-1; j<= rc-1;j++) {
-                if(isAnimalHere(i,j)) {
-                    System.out.print(renderAnimal(i,j));
-                } else {
-                    System.out.print(zoo.getCell(i, j).render());
-                }
-            }
-            System.out.println();
-        }
+        display(lr,lc,rr,rc);
         System.out.println();
     }
 }
