@@ -2,6 +2,7 @@
 
 package animal;
 
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.List;
 import util.Position;
@@ -137,4 +138,8 @@ public abstract class Animal implements Renderable {
      * @return String suara dari Animal
      */
     public abstract String interact();
+
+    public List<Integer> getFoodType() {
+        return food_type;
+    }
 }
