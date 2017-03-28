@@ -13,7 +13,7 @@ public class Person {
   public Person(StringBuffer alias, Position pos) {
     name = alias;
     position = pos;
-    symbol = '9';
+    symbol = 'P';
   }
 
   public Position getPosition() {
