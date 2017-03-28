@@ -79,7 +79,7 @@ public class DisplayMenu extends JPanel {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        //DisplayFoodPortion buff = new DisplayFoodPortion();
+                        DisplayFoodPortion buff = new DisplayFoodPortion();
                     }
                 }
         );
