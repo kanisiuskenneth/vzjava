@@ -104,7 +104,7 @@ public class TourVirtualZoo {
                                 System.out.println(kt.getName()+ ": " + kt.interact());
                             }
                             try {
-                                Thread.sleep(500);
+                                Thread.sleep(100);
                             } catch (InterruptedException e) {
 
                             }
@@ -133,8 +133,10 @@ public class TourVirtualZoo {
     }
     public void startTour() {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Who are you?");
-        player = new Person(new StringBuffer(scan.next()),zoo.entrances.get((int)Math.random()));
+        System.out.println("Please enter your name");
+        int r = zoo.entrances.get((int)Math.random()).row;
+        int c = zoo.entrances.get((int)Math.random()).col;
+        player = new Person(new StringBuffer(scan.next()),Position.makePos(r,c));
         interacted = new HashSet<Cage>();
         visited = new HashSet<Cell>();
         System.out.println("Player Spawned at" + player.getPosition().row + " " +player.getPosition().col);
