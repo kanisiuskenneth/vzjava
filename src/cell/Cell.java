@@ -155,4 +155,8 @@ public class Cell {
     public boolean IsInCage() {
       return incage;
     }
+
+    public void assignCage() {
+        incage = true;
+    }
 }

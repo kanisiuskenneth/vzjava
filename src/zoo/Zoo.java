@@ -13,7 +13,7 @@ import cell.Cell;
 public class Zoo {
     private int row;
     private int col;
-    private Matrix data;
+    public Matrix data;
 	public HashSet<Cage> cages = new HashSet<Cage>();
 	public Vector<Cell> entrances = new Vector<Cell>();
 
@@ -26,9 +26,8 @@ public class Zoo {
       return col;
     }
     public int getRow() {
-      return row;
+        return row;
     }
-	
 	public Cell getCell(int i, int j) {
 		return data.getData(i,j);
 	}
