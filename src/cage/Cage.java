@@ -34,14 +34,14 @@ public class Cage {
         boolean compatibility = true;
         for (Cell it : cells) {
             for (Character jt : hab) {
-                if ((Cell) it).GetHabitatType() == jt) {
+                if (it.GetHabitatType() == jt) {
                     compatibility = false;
                 }
             }
         }
         return compatibility;
     }
-    public void AddAnimal(int id, StringBuffer name, int row, int col) {
+    public void addAnimal(int id, StringBuffer name, int row, int col) {
         Animal buffer = new Animal(name, id, Position.makePos(row,col));
         if (isAnimalCompatible(id) && isHabitatCompatible(buffer.getHabitats())) {
             animals.add(buffer);
