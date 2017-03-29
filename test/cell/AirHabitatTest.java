@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * Created by Richard on 28-Mar-17.
  */
+
 public class AirHabitatTest {
     @Test
     public void testRenderMethod() {

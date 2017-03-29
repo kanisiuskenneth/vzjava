@@ -28,7 +28,7 @@ public class Driver {
    * @throws FileNotFoundException
    */
    private void initZoo() throws FileNotFoundException {
-     Scanner fileIn = new Scanner(new File("src/asset/map.txt"));
+     Scanner fileIn = new Scanner(new File("asset/map.txt"));
      try {
        fileIn.next();
        zoo = new Zoo(fileIn.nextInt(), fileIn.nextInt());
@@ -84,7 +84,7 @@ public class Driver {
    * @throws IOException
    */
    private void initCell() throws IOException {
-     BufferedReader fileIn = new BufferedReader(new FileReader("src/asset/map.txt"));
+     BufferedReader fileIn = new BufferedReader(new FileReader("asset/map.txt"));
      fileIn.readLine();
      for(int i=0; i<zoo.getRow(); i++) {
        for (int j = 0; j < zoo.getCol(); j++) {
@@ -135,7 +135,7 @@ public class Driver {
    * @throws IOException
    */
    private void initCage() throws IOException{
-     BufferedReader fileIn = new BufferedReader(new FileReader("src/asset/map.txt"));
+     BufferedReader fileIn = new BufferedReader(new FileReader("asset/map.txt"));
      try {
        fileIn.readLine();
        for (int i = 0; i < zoo.getRow(); i++) {
@@ -170,7 +170,7 @@ public class Driver {
    * @throws FileNotFoundException
    */
    private void initAnimal() throws FileNotFoundException{
-     Scanner fileIn = new Scanner(new File("src/asset/map.txt"));
+     Scanner fileIn = new Scanner(new File("asset/map.txt"));
      try {
        fileIn.nextLine();
        for (int i = 0; i < zoo.getRow(); i++) {
