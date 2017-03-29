@@ -82,7 +82,7 @@ public class Cage {
    * @param r baris dalam map, tempat Animal diposisikan
    * @param c kolom dalam map, tempat Animal diposisikan
    */
-  public void addAnimal(int id, StringBuffer name, int r, int c) {
+  public Animal addAnimal(int id, StringBuffer name, int r, int c) {
     Animal buffer = null;
     switch (id) {
       case 1:
@@ -151,6 +151,10 @@ public class Cage {
     }
     if(isAnimalCompatible(id) && isHabitatCompatible(buffer.getHabitats())) {
       animals.add(buffer);
+      return buffer;
+    } else {
+      return null;
     }
+
   }
 }
