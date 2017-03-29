@@ -1,3 +1,5 @@
+// File : TourVirtualZoo.java
+
 package cli;
 
 import animal.Animal;
@@ -14,25 +16,37 @@ import java.util.Scanner;
 import java.util.Vector;
 
 /**
- * Created by kennethhalim on 3/28/17.
+ * Created by Kanisius Kenneth Halim on 3/28/17.
  */
 
-
-
+/**
+ * Class TourVirtualZoo
+ */
 public class TourVirtualZoo {
     private Zoo zoo = Driver.zoo;
     private Person player = null;
     private HashSet<Cell> visited = null;
     private HashSet<Cage> interacted = null;
 
+    /**
+     * Predikat untuk menentukan apakah posisi berada dalam Zoo
+     * @param pos posisi yang ingin dicek apakah berada dalam Zoo
+     * @return boolean keberadaan posisi tersebut dalam Zoo
+     */
     private boolean isInBound(Position pos) {
         return pos.row >= 0 && pos.row < zoo.getRow() && pos.col >=0 && pos.col < zoo.getCol();
     }
-    private boolean isAnimalHere(int i,int j) {
-        boolean f =false;
+
+    /**
+     * Predikat untuk menentukan apakah ada Animal dalam koordinat yang diberikan
+     * @param row baris yang ingin dicek keberadaan Animalnya
+     * @param col kolom yang ingin dicek keberadaan Animalnya
+     * @return boolean keberadaan Animal dalam koordinat yang diberikan
+     */
+    private boolean isAnimalHere(int row, int col) {
         for(Cage it : zoo.cages) {
             for(Animal jt : it.animals) {
-                if(jt.getPosition().row == i && jt.getPosition().col == j) {
+                if(jt.getPosition().row == row && jt.getPosition().col == col) {
                     return true;
                 }
             }
@@ -40,16 +54,28 @@ public class TourVirtualZoo {
         return false;
     }
 
-    private char renderAnimal(int i,int j) {
+    /**
+     * Method untuk melakukan render terhadap Animal yang ada di dalam Zoo
+     * @param row baris tempat Animal yang ingin dirender
+     * @param col kolom tempat Animal yang ingin dirender
+     * @return karakter hasil render Animal
+     */
+    private char renderAnimal(int row, int col) {
         for(Cage it : zoo.cages) {
             for(Animal jt : it.animals) {
-                if(jt.getPosition().row == i && jt.getPosition().col == j) {
+                if(jt.getPosition().row == row && jt.getPosition().col == col) {
                     return jt.render();
                 }
             }
         }
         return '\0';
     }
+
+    /**
+     * Method untuk menampilkan Zoo
+     * I.S. : -
+     * F.S. : Zoo beserta isinya ditampilkan
+     */
     private void displayZoo() {
         for(int i=0; i<zoo.getRow(); i++) {
             for(int j=0;j<zoo.getCol(); j++) {
@@ -64,8 +90,15 @@ public class TourVirtualZoo {
             System.out.println();
         }
     }
-    private void movePlayer(int i) {
-        switch (i) {
+
+    /**
+     * Method untuk menggerakan Player
+     * I.S. : Player terdefinisi
+     * F.S. : Player sudah bergerak sesuai gerakan yang dipilih
+     * @param movement gerakan yang diambil oleh Player
+     */
+    private void movePlayer(int movement) {
+        switch (movement) {
             case 0:
                 player.moveUp();
                 break;
@@ -80,6 +113,11 @@ public class TourVirtualZoo {
                 break;
         }
     }
+
+    /**
+     * Method untuk menentukan gerakan selanjutnya
+     * @return boolean yang menyatakan sebuah koordinat merupakan gerakan selanjutnya
+     */
     private boolean nextMove() {
         int x = player.getPosition().row;
         int y = player.getPosition().col;
@@ -127,6 +165,12 @@ public class TourVirtualZoo {
             return false;
         }
     }
+
+    /**
+     * Method untuk melakukan Tour di VirtualZoo
+     * I.S. : Person dan Zoo terdefinisi
+     * F.S. : Tour berakhir karena Person tidak dapat pergi lagi ke tempat baru atau mencapai exit
+     */
     public void startTour() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Please enter your name");
