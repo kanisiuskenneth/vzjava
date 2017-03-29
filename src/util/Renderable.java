@@ -14,5 +14,5 @@ public interface Renderable {
    * Method untuk melakukan render
    * @return karakter yang akan dirender
    */
-   public char render();
+  char render();
 }

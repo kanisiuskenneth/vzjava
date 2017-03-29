@@ -36,7 +36,7 @@ public class DisplayMenu {
           buff2.startTour();
           break;
         case 3:
-          DisplayFoodPortion buff3 = new DisplayFoodPortion();
+          new DisplayFoodPortion();
           break;
       }
     } while(choice != 4);

@@ -2,7 +2,6 @@
 
 package animal;
 
-import java.util.ArrayList;
 import java.util.Set;
 import java.util.List;
 import util.Position;
@@ -16,21 +15,21 @@ import util.Renderable;
  * Abstract class Animal yang mengimplementasikan kelas interface renderable
  */
 public abstract class Animal implements Renderable {
-  private StringBuffer name;
-  private int weight;
-  private int id;
-  private Position position;
-  private char symbol;
-  protected String sound;
-  protected List<Integer> food_type;
-  protected List<Character> habitats;
-  protected Set<Integer> incompatible;
-  protected String filum;
-  protected String kelas;
-  protected String ordo;
-  protected String famili;
-  protected String genus;
-  protected String spesies;
+  private final StringBuffer name;
+  private final int weight;
+  private final int id;
+  private final Position position;
+  private final char symbol;
+  String sound;
+  List<Integer> food_type;
+  List<Character> habitats;
+  Set<Integer> incompatible;
+  String filum;
+  String kelas;
+  String ordo;
+  String famili;
+  String genus;
+  String spesies;
 
   /**
    * Class constructor.
@@ -40,7 +39,7 @@ public abstract class Animal implements Renderable {
    * @param pos posisi Animal yang akan dibentuk
    * @param sym simbol Animal yang akan dibentuk
    */
-  public Animal(StringBuffer animal_name, int animal_weight, int identifier, Position pos, char sym) {
+  Animal(StringBuffer animal_name, int animal_weight, int identifier, Position pos, char sym) {
     name = animal_name;
     weight = animal_weight;
     id = identifier;

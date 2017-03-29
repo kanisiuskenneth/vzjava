@@ -16,7 +16,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;
 import java.util.Random;
-import java.util.Scanner;
 import java.util.Vector;
 
 /**
@@ -24,7 +23,7 @@ import java.util.Vector;
  */
 
 public class TourVirtualZoo {
-    private Zoo zoo = Driver.zoo;
+    private final Zoo zoo = Driver.zoo;
     private Person player = null;
     private HashSet<Cell> visited = null;
     private HashSet<Cage> interacted = null;
@@ -32,8 +31,8 @@ public class TourVirtualZoo {
     private JLabel map;
     private JLabel log;
     private StringBuffer logtext;
-    Timer timer;
-    Container panel;
+    private Timer timer;
+    private Container panel;
 
 
     private boolean isInBound(Position pos) {
@@ -71,7 +70,7 @@ public class TourVirtualZoo {
         for (int i = 0; i < zoo.getRow(); i++) {
             for (int j = 0; j < zoo.getCol(); j++) {
                 if (i == player.getPosition().row && j == player.getPosition().col) {
-                    ret.append("P");
+                    ret.append(player.render());
                 }
                 else if (isAnimalHere(i, j)) {
                     ret.append(renderAnimal(i, j));
@@ -101,7 +100,7 @@ public class TourVirtualZoo {
                         if (jt.cells.contains(temp) && !interacted.contains(jt)) {
                             interacted.add(jt);
                             for (Animal kt : jt.animals) {
-                               logtext.append(kt.getName() + ": " + kt.interact()+ "<br>");
+                               logtext.append(kt.getName()).append(": ").append(kt.interact()).append("<br>");
                             }
                         }
                     }
@@ -126,18 +125,7 @@ public class TourVirtualZoo {
             return false;
         }
     }
-
-    private void displayZoo() {
-
-    }
-
-    private void controller() {
-        nextMove();
-        displayZoo();
-    }
-
-    public TourVirtualZoo() {
-        player = new Person(new StringBuffer("ken"), Position.makePos(24, 71));
+    private void startTour() {
         display = new JFrame("VirtualZoo");
         display.setSize(850, 500);
         display.setLocationRelativeTo(null);
@@ -150,7 +138,7 @@ public class TourVirtualZoo {
         interacted = new HashSet<Cage>();
         visited = new HashSet<Cell>();
         map = new JLabel(renderZoo().toString());
-        map.setFont(new Font("Courier", 0, 14));
+        map.setFont(new Font("Courier", Font.PLAIN, 14));
         logtext = new StringBuffer("<html><h3>Log</h3>");
         log = new JLabel(logtext.toString());
         log.setMinimumSize(new Dimension(200,500));
@@ -160,7 +148,6 @@ public class TourVirtualZoo {
         panel.add(map,BorderLayout.WEST);
         panel.add(log,BorderLayout.CENTER);
         panel.add(head,BorderLayout.NORTH);
-        boolean f=true;
         JButton back = new JButton("Back to Main Menu");
         back.setBackground(Color.black);
         back.addActionListener(
@@ -186,6 +173,41 @@ public class TourVirtualZoo {
             }
         });
         timer.start();
+    }
+
+    public TourVirtualZoo() {
+        JFrame input = new JFrame();
+        input.setSize(400,300);
+        input.setLocationRelativeTo(null);
+        Container ipanel = input.getContentPane();
+        ipanel.setLayout(null);
+        JLabel name = new JLabel("Please Enter Your Name: ");
+        name.setBounds(0,100,400,20);
+        name.setHorizontalAlignment(SwingConstants.CENTER);
+        JTextField in = new JTextField();
+        in.setBounds(0,120,400,20);
+        name.setHorizontalAlignment(SwingConstants.CENTER);
+        JButton start = new JButton("Start Tour");
+        start.setBackground(Color.black);
+        start.setBounds(150,150,100,30);
+        ipanel.add(name);
+        ipanel.add(in);
+        ipanel.add(start);
+        ipanel.setVisible(true);
+        input.setVisible(true);
+        start.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        Random rand = new Random();
+                        Position z = zoo.entrances.get(rand.nextInt(zoo.entrances.size()));
+                        player = new Person(new StringBuffer(in.getText()), Position.makePos(z.row, z.col));
+                        input.dispose();
+                        startTour();
+                    }
+                }
+        );
+
 
     }
 }

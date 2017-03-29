@@ -23,7 +23,7 @@ import javax.swing.*;
  */
 public class DisplayVirtualZoo {
 
-  private Zoo zoo = Driver.zoo;
+  private final Zoo zoo = Driver.zoo;
 
   /**
    * Predikat untuk menentukan keberadaan Animal dalam koordinat
@@ -144,7 +144,7 @@ public class DisplayVirtualZoo {
             int bottom = Integer.parseInt(textinput3.getText());
             int right = Integer.parseInt(textinput4.getText());
 
-            if (top >= 1 && left >= 1 && bottom >= top && right >= left) {
+            if (isInBound(top,left) && isInBound(bottom,right) && bottom >=top && right >= left) {
               frameinsert.dispose();
               JFrame frame = new JFrame("Display Virtual Zoo");
               frame.setSize(850, 500);

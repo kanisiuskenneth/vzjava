@@ -13,9 +13,9 @@ import animal.Animal;
  * Menciptakan Cell beserta atributnya
  */
 public class Cell {
-    private char symbol;
-    private boolean human_pass;
-    private boolean animal_pass;
+    private final char symbol;
+    private final boolean human_pass;
+    private final boolean animal_pass;
     private Animal animal_here;
     /**
      * Class constructor.
@@ -23,7 +23,7 @@ public class Cell {
      * @param hpass boolean apakah bisa dilewati person atau tidak
      * @param apass boolean apakah bisa dilewati animal atau tidak
      */
-    public Cell(char c, boolean hpass, boolean apass) {
+    Cell(char c, boolean hpass, boolean apass) {
         symbol = c;
         human_pass = hpass;
         animal_pass = apass;

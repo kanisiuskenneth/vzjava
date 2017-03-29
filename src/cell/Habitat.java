@@ -11,12 +11,12 @@ package cell;
  * Menciptakaan Habitat beserta atributnya
  */
 public class Habitat extends Cell {
-    protected char hab_type;
-    protected boolean gate_up;
-    protected boolean gate_down;
-    protected boolean gate_left;
-    protected boolean gate_right;
-    protected boolean incage;
+    private final char hab_type;
+    private boolean gate_up;
+    private boolean gate_down;
+    private boolean gate_left;
+    private boolean gate_right;
+    private boolean incage;
 
     /**
      * Class constructor.

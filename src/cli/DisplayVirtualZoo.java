@@ -19,7 +19,7 @@ import java.util.Scanner;
  */
 public class DisplayVirtualZoo {
 
-  private  Zoo zoo = Driver.zoo;
+  private final Zoo zoo = Driver.zoo;
 
   /**
    * Predikat ada Animal di Cell
@@ -74,7 +74,7 @@ public class DisplayVirtualZoo {
    * @param rr koordinat baris bawah
    * @param rc koordinat kolom kanan
    */
-  public void display(int lr,int lc,int rr, int rc) {
+  private void display(int lr, int lc, int rr, int rc) {
     for(int i =lr-1; i <= rr-1; i++) {
       for(int j= lc-1; j<= rc-1;j++) {
         if(isAnimalHere(i,j)) {

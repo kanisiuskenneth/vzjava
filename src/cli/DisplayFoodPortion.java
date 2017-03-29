@@ -13,8 +13,8 @@ import zoo.Zoo;
  * Class DisplayFoodPortion
  * Class command line interface untuk menampilkan banyaknya food_portion yang dibutuhkan Animal di Zoo
  */
-public class DisplayFoodPortion {
-  Zoo zoo = Driver.zoo;
+class DisplayFoodPortion {
+  private final Zoo zoo = Driver.zoo;
 
   /**
    * Class constructor menampilkan food_portion yang dibutuhkan dalam Zoo

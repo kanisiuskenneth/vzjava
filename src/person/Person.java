@@ -12,9 +12,9 @@ import util.Position;
  * Class Person menyatakan person di map
  */
 public class Person {
-  private StringBuffer name;
-  private char symbol;
-  private Position position;
+  private final StringBuffer name;
+  private final char symbol;
+  private final Position position;
 
   /**
    * Class constructor
@@ -76,5 +76,9 @@ public class Person {
    */
   public char render() {
   return symbol;
+  }
+
+  public StringBuffer getName() {
+    return name;
   }
 }

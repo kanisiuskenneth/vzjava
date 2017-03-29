@@ -27,7 +27,7 @@ import java.util.Vector;
  * Class command line interface untuk melakukan tour di virtual zoo
  */
 public class TourVirtualZoo {
-    private Zoo zoo = Driver.zoo;
+    private final Zoo zoo = Driver.zoo;
     private Person player = null;
     private HashSet<Cell> visited = null;
     private HashSet<Cage> interacted = null;
@@ -43,19 +43,13 @@ public class TourVirtualZoo {
 
     /**
      * Predikat keberadaan animal dalam sebuah Cell
-     * @param row baris yang ingin dicek keberadaan Animalnya
-     * @param col kolom yang ingin dicek keberadaan Animalnya
+     * @param i baris yang ingin dicek keberadaan Animalnya
+     * @param j kolom yang ingin dicek keberadaan Animalnya
      * @return boolean keberadaan Animal dalam koordinat Cell
      */
-    private boolean isAnimalHere(int row, int col) {
-        for(Cage it : zoo.cages) {
-            for(Animal jt : it.animals) {
-                if(jt.getPosition().row == row && jt.getPosition().col == col) {
-                    return true;
-                }
-            }
-        }
-        return false;
+    private boolean isAnimalHere(int i, int j) {
+        boolean f = false;
+        return zoo.getCell(i, j) instanceof Habitat && zoo.getCell(i, j).getAnimal() != null;
     }
 
     /**
@@ -64,16 +58,10 @@ public class TourVirtualZoo {
      * @param j kolom dalam zoo tempat Animal ingin dirender
      * @return character render dari Animal jika ada, null jika tidak ada
      */
-    private char renderAnimal(int i,int j) {
-        for(Cage it : zoo.cages) {
-            for(Animal jt : it.animals) {
-                if(jt.getPosition().row == i && jt.getPosition().col == j) {
-                    return jt.render();
-                }
-            }
-        }
-        return '\0';
+    private char renderAnimal(int i, int j) {
+        return zoo.getCell(i, j).getAnimal().render();
     }
+
 
     /**
      * Method untuk menampilkan isi zoo
@@ -145,11 +133,6 @@ public class TourVirtualZoo {
                             for (Animal kt : jt.animals) {
                                 System.out.println(kt.getName()+ ": " + kt.interact());
                             }
-                            try {
-                                Thread.sleep(100);
-                            } catch (InterruptedException e) {
-
-                            }
                         }
                     }
                 }
@@ -182,8 +165,9 @@ public class TourVirtualZoo {
     public void startTour() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Please enter your name");
-        int r = zoo.entrances.get((int)Math.random()).row;
-        int c = zoo.entrances.get((int)Math.random()).col;
+        Random rand = new Random();
+        int r = zoo.entrances.get(rand.nextInt(zoo.entrances.size())).row;
+        int c = zoo.entrances.get(rand.nextInt(zoo.entrances.size())).col;
         player = new Person(new StringBuffer(scan.next()),Position.makePos(r,c));
         interacted = new HashSet<Cage>();
         visited = new HashSet<Cell>();

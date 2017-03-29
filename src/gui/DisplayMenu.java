@@ -3,9 +3,6 @@
 package gui;
 
 import java.awt.Color;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JOptionPane;
 import java.awt.Container;
 import java.awt.event.*;
 import javax.swing.*;
@@ -24,13 +21,13 @@ public class DisplayMenu extends JPanel {
    * I.S. : -
    * F.S. : Kata-kata sambutan ke VirtualZoo ditampilkan ke layar
    */
-  public static void introductionPanel() {
+  private static void introductionPanel() {
     JFrame frame = new JFrame();
     String text = "Welcome to FriendlyZoo. FriendlyZoo is\nan interactive virtual zoo. You can do many\nthings in here, have fun!";
     JOptionPane.showMessageDialog(frame, text, "Welcome!", JOptionPane.PLAIN_MESSAGE);
   }
 
-    public JFrame frame = new JFrame("FriendlyZoo");
+    private final JFrame frame = new JFrame("FriendlyZoo");
 
   /**
    * Class constructor.
@@ -105,7 +102,7 @@ public class DisplayMenu extends JPanel {
     frame.setVisible(true);
     frame.setLocationRelativeTo(null);
     frame.setResizable(true);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
   }
 }

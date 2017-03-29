@@ -30,7 +30,6 @@ public class Position {
    * @return posisi yang sudah dibentuk
    */
   public static Position makePos(int _row, int _col) {
-    Position P = new Position(_row,_col);
-    return P;
+    return new Position(_row,_col);
   }
 }

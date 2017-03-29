@@ -3,7 +3,6 @@
 package cage;
 
 import animal.*;
-import animal.Chimpanzee;
 import cell.Cell;
 import cell.Habitat;
 
@@ -18,9 +17,9 @@ import java.util.List;
  * Class Cage
  */
 public class Cage {
-  public HashSet<Cell> cells = new HashSet<Cell>();
-  public HashSet<Animal> animals = new HashSet<Animal>();
-  private char type;
+  public final HashSet<Animal> animals = new HashSet<Animal>();
+  public final HashSet<Cell>  cells = new HashSet<Cell>();
+  private final char type;
 
   /**
    * Class Constructor.

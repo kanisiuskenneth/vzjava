@@ -18,8 +18,8 @@ import java.awt.event.ActionListener;
  * Class DisplayFoodPortion
  * Class graphical user interface untuk menampilkan porsi makanan yang diperlukan Zoo
  */
-public class DisplayFoodPortion extends JPanel {
-  Zoo zoo = Driver.zoo;
+class DisplayFoodPortion extends JPanel {
+  private final Zoo zoo = Driver.zoo;
 
   /**
    * Class constructor.

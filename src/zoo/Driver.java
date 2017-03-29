@@ -150,7 +150,6 @@ public class Driver {
                  ret = new Cage(zoo.getCell(i,j).render());
                  ret.cells.add(zoo.getCell(i,j));
                  zoo.cages.add(ret);
-                 System.out.println("Created Cage at" +  i + " " + j);
                } else {
                  ret.cells.add(zoo.getCell(i,j));
                }

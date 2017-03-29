@@ -11,9 +11,9 @@ import cell.Cell;
  * Class Matrix of Cell
  */
 public class Matrix {
-  Cell[][] Data;
-  int nrow;
-  int ncol;
+  private final Cell[][] Data;
+  private final int nrow;
+  private final int ncol;
 
   /**
    * Class constructor
@@ -46,5 +46,12 @@ public class Matrix {
    */
   public Cell getData(int i,int j) {
     return Data[i][j];
+  }
+
+  public int getRow() {
+    return nrow;
+  }
+  public int getCol() {
+    return ncol;
   }
 }

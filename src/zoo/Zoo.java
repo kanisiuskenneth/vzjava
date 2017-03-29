@@ -19,11 +19,11 @@ import util.Position;
  * Class Zoo
  */
 public class Zoo {
-  private int row;
-  private int col;
-  public Matrix data;
-  public HashSet<Cage> cages = new HashSet<Cage>();
-  public Vector<Position>  entrances = new Vector<Position>();
+  private final int row;
+  private final int col;
+  public final Matrix data;
+  public final HashSet<Cage> cages = new HashSet<Cage>();
+  public final Vector<Position>  entrances = new Vector<Position>();
 
   /**
    * Class constructor.
