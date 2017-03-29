@@ -6,6 +6,8 @@ package cell;
  * Created by Irene Edria on 3/23/17.
  */
 
+import animal.Animal;
+
 /**
  * Abstract Class Cell
  * Menciptakan Cell beserta atributnya
@@ -14,7 +16,7 @@ public class Cell {
     private char symbol;
     private boolean human_pass;
     private boolean animal_pass;
-
+    private Animal animal_here;
     /**
      * Class constructor.
      * @param c symbol dari Cell
@@ -53,5 +55,11 @@ public class Cell {
      */
     public boolean isAnimalPass() {
         return animal_pass;
+    }
+    public Animal getAnimal() {
+        return animal_here;
+    }
+    public void addAnimal(Animal X) {
+        animal_here = X;
     }
 }
