@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="vzjava:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/vzjava_jar</output-path>
+    <root id="archive" name="vzjava.jar">
+      <element id="module-output" name="vzjava" />
+    </root>
+  </artifact>
+</component>
