@@ -3,6 +3,8 @@
 package zoo;
 
 import java.util.Scanner;
+
+import animal.Animal;
 import cage.Cage;
 import cell.*;
 import util.Position;
@@ -117,9 +119,9 @@ public class Driver {
      for(Cage it : zoo.cages) {
        if(((isInBound(i-1,j) &&it.cells.contains(zoo.getCell(i-1,j)))
            || (isInBound(i,j-1) && it.cells.contains(zoo.getCell(i,j-1)))
-           || (isInBound(i,j-1) && it.cells.contains(zoo.getCell(i+1,j)))
-           || (isInBound(i,j-1) && it.cells.contains(zoo.getCell(i,j+1))))
-           && it.getType() == zoo.getCell(i,j).render()) {
+           || (isInBound(i+1,j) && it.cells.contains(zoo.getCell(i+1,j)))
+           || (isInBound(i,j+1) && it.cells.contains(zoo.getCell(i,j+1))))
+           && Character.toLowerCase(it.getType()) == Character.toLowerCase(zoo.getCell(i,j).render())) {
          return it;
        }
      }
@@ -148,6 +150,7 @@ public class Driver {
                  ret = new Cage(zoo.getCell(i,j).render());
                  ret.cells.add(zoo.getCell(i,j));
                  zoo.cages.add(ret);
+                 System.out.println("Created Cage at" +  i + " " + j);
                } else {
                  ret.cells.add(zoo.getCell(i,j));
                }
@@ -185,7 +188,10 @@ public class Driver {
          Cell x = zoo.getCell(r, c);
          for (Cage it : zoo.cages) {
            if (it.cells.contains(x)) {
-             it.addAnimal(id, name, r, c);
+             Animal buff = it.addAnimal(id,name,r,c);
+             if(buff!=null) {
+               zoo.getCell(r,c).addAnimal(buff);
+             }
            }
          }
        }
