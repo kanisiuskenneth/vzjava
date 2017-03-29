@@ -28,9 +28,9 @@ public class DisplayMenu extends JPanel {
     JFrame frame = new JFrame();
     String text = "Welcome to FriendlyZoo. FriendlyZoo is\nan interactive virtual zoo. You can do many\nthings in here, have fun!";
     JOptionPane.showMessageDialog(frame, text, "Welcome!", JOptionPane.PLAIN_MESSAGE);
-  };
+  }
 
-  public JFrame frame = new JFrame("FriendlyZoo");
+    public JFrame frame = new JFrame("FriendlyZoo");
 
   /**
    * Class constructor.
@@ -42,19 +42,19 @@ public class DisplayMenu extends JPanel {
     Container panel = frame.getContentPane();
     panel.setLayout(null);
 
-    JButton button1 = new JButton ("1. Display Virtual Zoo");
+    JButton button1 = new JButton ("Display Virtual Zoo");
     button1.setBackground(Color.black);
     button1.setBounds(90, 50, 220, 30);
 
-    JButton button2 = new JButton("2. Tour Virtual Zoo");
+    JButton button2 = new JButton("Tour Virtual Zoo");
     button1.setBackground(Color.black);
     button2.setBounds(90, 80, 220, 30);
 
-    JButton button3 = new JButton("3. Display Food Portion");
+    JButton button3 = new JButton("Display Food Portion");
     button3.setBackground(Color.black);
     button3.setBounds(90, 110, 220, 30);
 
-    JButton button4 = new JButton("4. Exit");
+    JButton button4 = new JButton("Exit");
     button4.setBackground(Color.black);
     button4.setBounds(90, 140, 220, 30);
 
