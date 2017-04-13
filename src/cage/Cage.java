@@ -86,6 +86,7 @@ public class Cage {
     switch (id) {
       case 1:
         buffer = new Deer(name,r,c);
+
         break;
       case 2:
         buffer = new Chimpanzee(name,r,c);
